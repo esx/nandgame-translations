@@ -1,0 +1,658 @@
+{
+  "missions": {
+    "RELAY_NAND": {
+      "title": "Nand",
+      "splash": "<p>Witamy w <b>grze Nand</b> !</p><p> Zamierzasz zbudować komputer zaczynając od podstawowych elementów.<div><p> Gra składa się z szeregu poziomów. Na każdym poziomie Twoim zadaniem jest zbudowanie komponentu, który zachowuje się zgodnie ze specyfikacją. Ten komponent może być następnie wykorzystany jako element konstrukcyjny na następnym poziomie.<p> Gra nie wymaga żadnej wcześniejszej wiedzy o architekturze komputera czy oprogramowaniu i nie wymaga umiejętności matematycznych poza dodawaniem i odejmowaniem. (Wymaga to trochę cierpliwości — rozwiązanie niektórych zadań może trochę potrwać!)</div><p> Twoim pierwszym zadaniem jest zbudowanie komponentu <b>nand</b> .<p> Po lewej stronie diagramu znajduje się dokładna specyfikacja zadania. Kliknij „Pomoc dotycząca poziomu”, aby uzyskać dodatkowe informacje, które mogą być pomocne.",
+      "specification": "<p>Twoim zadaniem jest połączenie wejść z wyjściami za pomocą przewodów i przekaźników, tak aby gdy oba wejścia <b>a</b> i <b>b</b> mają wartość 1, wyjście ma wartość 0.</p><p> <b>1</b> oznacza prąd elektryczny, <b>0</b> oznacza brak prądu.<p> Wejście <b>V</b> przenosi prąd stały, czyli zawsze 1.<p> Dokładna specyfikacja:",
+      "elaboration": "<p>Komponent <b>nand</b> (lub bramka nand) jest podstawowym komponentem logicznym. Za pomocą samych bramek nand można zbudować całą logikę obliczeniową. Dlatego zaczynamy od zbudowania bramy nand!</p><p> <b>Przekaźnik</b> jest przełącznikiem sterowanym elektrycznie, w którym sygnał sterujący powoduje włączanie i wyłączanie przełącznika. Prąd sterujący jest podłączony do elektromagnesu, który przesuwa styk między pozycjami włączenia i wyłączenia.<p> Pierwsze komputery elektroniczne zbudowano z przekaźników elektrycznych, ale dziś komputery zbudowane są z tranzystorów. Tranzystory są przełącznikami jak przekaźniki, ale nie mają żadnych części mechanicznych, przez co są (dużo) mniejsze i tańsze. Nandgame używa przekaźników, ponieważ łatwiej jest pokazać, jak działają, ale logicznie przekaźniki i tranzystory są podobne. Po zbudowaniu komponentu Nand możemy zignorować, czy jest zbudowany z przekaźników, czy z tranzystorów.",
+      "spoilers": [
+         "Użyj przekaźników w dwóch krokach. W pierwszym przekaźniku wyprowadź a 1, gdy a i b mają wartość 1. Drugi przekaźnik powinien odwrócić wyjście z pierwszego, więc 1 staje się 0, a 0 staje się 1."
+      ],
+      "hints": {
+        "drag": "<b>Krok 1:</b> Przeciągnij komponenty z przybornika do niebieskiego obszaru.",
+        "tap": "<b>Krok 2:</b> Stuknij lub przeciągnij trójkąt, aby utworzyć połączenie.",
+        "tap-end": "Stuknij złącze źródłowe na komponencie, aby utworzyć połączenie.",
+        "truth": "Specyfikacja komponentu do zbudowania.<p> Dla każdego wejścia komponent powinien generować poprawny wynik.",
+        "toggle": "Kliknij pole wyboru, aby przełączyć sygnał wejściowy i zobaczyć, jak wpływa on na obwód.",
+        "verify": "Kliknij tutaj, jeśli uważasz, że prawidłowo zaprojektowałeś komponent."
+      },
+      "debriefing": "<b>Komponent nand</b> został teraz dodany do twojego zestawu narzędzi i może być używany jako element konstrukcyjny na kolejnych poziomach."
+    },
+    "INV": {
+      "title": "Inwerter (INV)",
+      "splash": "<p>Twoim następnym zadaniem jest zbudowanie komponentu <b>falownika</b> przy użyciu komponentu <b>nand</b> .<p><p> Od tego poziomu nie musimy rozważać mechaniki podstawowych przełączników. Chociaż fizyczna bramka nand wymaga podłączenia do źródła zasilania, nie musimy tego pokazywać na schemacie. Wszystkie komponenty są uważane za niejawnie podłączone do źródła zasilania. Możemy teraz skoncentrować się na logicznym wejściu/wyjściu.</p>",
+      "specification": "<p>Kolejnym zadaniem jest zbudowanie komponentu falownika ( <b>inv</b> ).<p> Komponent <b>inv</b> ma jedno wejście i jedno wyjście.<p> Wyjście powinno być przeciwieństwem wejścia, więc 0 dla 1 i odwrotnie:",
+      "hints": {
+         "0": "Komponent <b>nand</b> został teraz dodany do przybornika."
+      }
+    },
+    "AND": {
+      "title": "Iloczyn (AND)",
+      "splash": "<p>Kolejnym zadaniem jest zbudowanie bramki <b>i</b> przy użyciu wyłącznie komponentów <b>nand</b> i <b>inv</b> . (Możesz nie potrzebować obu rodzajów do rozwiązania tego zadania.)",
+      "specification": "<p>Wyjście An <b>i</b> bramki wynosi 1, gdy oba wejścia mają wartość 1:",
+      "spoilers": [
+         "„NAND” to właściwie skrót od „Negative AND”"
+      ]
+    },
+    "OR": {
+      "title": "Suma logiczna (OR)",
+      "specification": "<p>Wyjście <b>lub</b> bramka wynosi 1, gdy co najmniej jedno wejście ma wartość 1:"
+    },
+    "XOR": {
+      "title": "Alternatywa rozłączna (XOR) ",
+      "specification": "<p>Wyjście bramki <b>xor</b> wynosi 1, gdy dwa wejścia są różne:",
+      "elaboration": "XOR to skrót od <i>Exclusive OR</i> . Oznacza <i>a lub b, ale nie oba</i> ."
+    },
+    "HALFADD": {
+      "title": "Pół sumator",
+      "splash": "<p>Gratulacje, zbudowałeś podstawowe bramki logiczne.<p> Następnym krokiem są operacje arytmetyczne. Procesor musi mieć możliwość dodawania i odejmowania liczb.<p> Pierwszym zadaniem jest zsumowanie dwóch liczb jednobitowych. Wynik będzie liczbą dwubitową<p> Aby rozwiązać ten problem, musisz zrozumieć system liczb binarnych.",
+      "specification": "<p><b>Dodaj</b> składnik, który dodaje dwa bity. Wyjście jest wartością dwubitową.<p> Wyjście <b>h</b> to wysoki bit, <b>l</b> to niski bit.",
+      "elaboration": "<div class=subject><h3>Liczby binarne</h3><p> Komputery wykonują operacje arytmetyczne przy użyciu <b>binarnego systemu liczbowego</b> .<p> W systemie binarnym wszystkie liczby są reprezentowane tylko za pomocą cyfr 0 i 1. Jest to przeciwieństwo naszego zwykłego systemu liczbowego, który używa cyfr 0-9.<p> Przykład:<table class=data><tr><th> Dwójkowy</th><th> Dziesiętny</th></tr><tr><td> 00</td><td> 0</td></tr><tr><td> 01</td><td> 1</td></tr><tr><td> 10</td><td> 2</td></tr><tr><td> 11</td><td> 3</td></tr></table> Aby zrozumieć binarny, zastanów się, jak działa system liczb dziesiętnych. Istnieje dziesięć odrębnych cyfr, ale możemy wyrazić dowolne duże liczby za pomocą pozycji cyfr. W liczbie trzycyfrowej pierwsza cyfra od prawej to jedynki, druga to dziesiątki, trzecia to setki itd. Zatem 273 to 2 x 100 + 7 x 10 + 3 x 1. Pozycje to dzielniki z 10. Dziesiętny jest nazywany systemem liczbowym o <i>podstawie 10</i> .<p> Liczby binarne są systemem liczbowym o podstawie 2, więc używane są tylko dwie cyfry: 0 i 1. W systemie binarnym pozycje są dzielnikami dwóch: 1, 2, 4, 8 i tak dalej. Zatem 101 w systemie binarnym to 5 w systemie dziesiętnym (1 x 4 + 0 x 2 + 1 x 1). Liczby binarne są idealne dla obwodów cyfrowych, ponieważ dwa stany w systemach cyfrowych mogą odpowiadać cyfrom 0 i 1.<p> <a href=\"https://www.mathsisfun.com/binary-number-system.html\">System liczb binarnych</a></p></div>",
+      "spoilers": [
+         "Przyjrzyj się dwóm kolumnom wyjściowym oddzielnie i sprawdź, czy rozpoznajesz wzorzec."
+      ]
+    },
+    "FULLADD": {
+      "title": "Sumator Pełny",
+      "splash": "<p>Zbudowałeś teraz sumator, który może dodać dwa bity.<p> Ale aby dodać większe liczby, musimy również wziąć pod uwagę „przeniesienie” z poprzedniego dodania.<p> Ta misja polega na zbudowaniu komponentu sumującego, który dodaje <i>trzy</i> bity aib i c, gdzie c jest bitem przeniesienia.",
+      "specification": "<p>Składnik <b>add</b> , który dodaje trzy bity: <b>a</b> , <b>b</b> i <b>c</b> .<p> Wyjście jest wartością dwubitową. Wyjście <b>h</b> to wysoki bit, <b>l</b> to niski bit.",
+      "elaboration": "Celem jest umożliwienie dodawania dowolnie dużych liczb. Więc dodajemy pierwszą parę cyfr, następnie bierzemy przeniesienie (jeśli jest) i dodajemy następną parę cyfr.\n "
+    },
+    "ADD2": {
+      "title": "Wielobitowy sumator",
+      "splash": "<p>Teraz zbuduj sumator, który dodaje dwie 2-bitowe liczby (i 1-bitowe przeniesienie).<p> Sumatory 2-bitowe można powtarzać, aby sumatory działały na większych liczbach.",
+      "specification": "<p>Zbuduj sumator, który dodaje dwie 2-bitowe liczby i 1-bitowe przeniesienie.<h3> Wejście</h3><p> <b>a1 a0</b> to liczba 2-bitowa.<p> <b>b1 b0</b> to liczba 2-bitowa.<p> <b>c</b> (przeniesienie wejścia) to liczba 1-bitowa.<h3> Wyjście</h3><p> Suma liczb wejściowych jako liczba 3-bitowa <b>c s1 s0</b> , gdzie <b>c</b> jest starszym bitem.<h3> Przykład</h3><table class='data'><colgroup class=input><col><col></colgroup><colgroup class=input><col><col></colgroup><colgroup class=input><col></colgroup><colgroup class=output><col><col><col></colgroup><colgroup class=output><col></colgroup><tr><th colspan=5> Wejście</th><th colspan=3> Wyjście</th></tr><tr><th> a1</th><th> a0</th><th> b1</th><th> b0</th><th> c</th><th> c</th><th> s1</th><th> s0</th></tr><tr><td> 1</td><td> 0</td><td> 1</td><td> 0</td><td> 1</td><td> 1</td><td> 0</td><td> 1</td><td> 2+2+1=5</td></tr></table>",
+      "debriefing": "<p>Projekt komponentu do dodawania dwucyfrowych liczb binarnych można powtórzyć, aby dodać dowolne duże liczby.<p> Ponieważ budujemy 16-bitowy procesor, powtarzamy ten składnik, aby zbudować 16-bitowy składnik sumujący i dodać go do przybornika pod nazwą <b>add 16</b> ."
+    },
+    "INC": {
+      "title": "Inkrementator",
+      "splash": "<p>Jesteś teraz gotowy do pracy z liczbami 16-bitowymi.<p> Twoim zadaniem jest zbudowanie komponentu <b>przyrostowego</b> , który dodaje 1 do 16-bitowej liczby.<p> Ponieważ pracujesz teraz z liczbami 16-bitowymi, uprościliśmy przedstawienie na schemacie: Zamiast 16 oddzielnych przewodów i złączy, są one połączone razem i pokazane jako pojedyncze złącze, oznaczone małą etykietą „ <b>16</b> ”.",
+      "specification": "<p>Dodaj <b>1</b> do 16-bitowej liczby.<p><p> Zignoruj przeniesienie, jeśli wynik jest większy niż 16 bitów",
+      "hints": {
+         "0": "16 bitów wyjścia jako jednostka. Wyświetla dane wyjściowe w postaci szesnastkowej i dziesiętnej ze znakiem.",
+         "1": "Wejście 16-bitowe jako jednostka. Możesz wprowadzić wartość w postaci szesnastkowej lub dziesiętnej."
+      },
+      "elaboration": "<p><b>Przyrost</b> oznacza zwiększenie liczby o 1. Jest to przydatne w wielu miejscach, na przykład w licznikach.<h3> 16-bitowy</h3><p> Procesor zawsze działa na wielu bitach na raz. Procesor, który budujesz, jest <b>procesorem 16-bitowym,</b> co oznacza, że działa na zestawach 16-bitowych na raz.<p> Nowoczesne procesory (takie jak te w komputerze lub smartfonie) są zazwyczaj 32-bitowe lub 64-bitowe. Procesory wbudowane, takie jak te w kuchence mikrofalowej, mogą być 8-bitowe lub 4-bitowe. Wybraliśmy 16 bitów, ponieważ to wystarczy, aby było użyteczne.<h3> Słowa i bajty</h3><p> Zestaw 16 bitów nazywany jest <b>słowem</b> . Wielkość słowa zależy od procesora. <b>Bajt</b> to niezależna od maszyny jednostka, która zawsze ma 8 bitów.<div><h3> Autobus</h3><p> Zbiór połączeń traktowany jako całość nazywa się <b>autobusem</b> . Wejście i wyjście to 16-bitowa magistrala. Wejścia <b>A</b> i <b>B</b> na 16-bitowym sumatorze są również 16-bitową magistralą.</div><div><h3> Szesnastkowy</h3><p> Większe liczby binarne są niewygodne do czytania i pisania dla ludzi. Dlatego mamy liczby <b>szesnastkowe</b> , które są krótsze i łatwiejsze w zarządzaniu. Szesnastkowy to system liczbowy o podstawie 16, w którym litery A, B, C, D, E, F są używane dla liczb od dziesięciu do piętnastu.<p> Szesnastkowy (skrócony <i>szesnastkowy</i> ) jest wygodny dla danych binarnych, ponieważ jedna cyfra szesnastkowa zawsze odpowiada czterem bitom. Słowo 16-bitowe to cztery cyfry szesnastkowe. Cyfry dziesiętne nie odpowiadają bezpośrednio cyfrom binarnym, więc dziesiętne jest mniej wygodne w przypadku danych binarnych.<p> Przykłady:<table class='data numbers'><tr><th> klątwa</th><th> dziesiętny bez znaku</th><th> dwójkowy</th></tr><tr><td> 1</td><td> 1</td><td> 00000000000000001</td></tr><tr><td> F</td><td> 15</td><td> 000000000001111</td></tr><tr><td> 10</td><td> 16</td><td> 0000000000010000</td></tr><tr><td> 2A</td><td> 42</td><td> 00000000000101010</td></tr><tr><td> 0100</td><td> 256</td><td> 0000000100000000</td></tr><tr><td> FFFF</td><td> 65535</td><td> 1111111111111111111</td></tr></table><p> Dla Twojej wygody 16-bitowe porty wejściowe i wyjściowe pokazują liczby w systemie szesnastkowym obok binarnego. Możesz wprowadzić liczby szesnastkowe, a zostaną one automatycznie przekonwertowane na binarne.<p> <a href=\"https://www.mathsisfun.com/hexadecimals.html\">Samouczek szesnastkowy</a> . [Jeśli znajdziesz lepszy samouczek niż ten, wyślij mi link]</div>",
+      "spoilers": [
+         "Złącze wejściowe nie musi być do niczego podłączone. Niepodłączone wejście to zawsze 0.",
+         "Bramka <b>inv</b> , która nie jest podłączona do żadnego wejścia, zawsze wyprowadza 1",
+         "Wejście carry <b>c</b> on <b>add</b> jest wejściem jednobitowym i akceptuje binarne 0 lub 1."
+      ]
+    },
+    "SUB": {
+      "title": "Odejmowarka",
+      "splash": "<p>Teraz zbuduj komponent, który <b>odejmuje</b> jedną 16-bitową liczbę od drugiej.",
+      "specification": "<p>Wyprowadza A minus B jako liczbę 16-bitową.<p> Jeśli wynik jest mniejszy od zera, jest przedstawiany jako 65536 plus wynik.<p> Przykłady:<table class='data numbers'><tr><th> wynik</th><th> 16-bitowy binarny</th><th> dziesiętny bez znaku</th></tr><tr><td> 1</td><td> 00000000000000001</td><td> 1</td></tr><tr><td> 0</td><td> 000000000000000</td><td> 0</td></tr><tr><td> -1</td><td> 1111111111111111111</td><td> 65535</td></tr><tr><td> -2</td><td> 11111111111111110</td><td> 65534</td></tr><tr><td> -3</td><td> 11111111111111101</td><td> 65533</td></tr></table><p> (Jest to odpowiednik reprezentacji uzupełnienia do dwóch)",
+      "elaboration": "<div class=subject><h3>Dopełnienie dwójki</h3><p> Uzupełnienie do dwójki to standardowy sposób przedstawiania liczb ze znakiem (dodatnich i ujemnych) w systemie binarnym.<p> Bit 15 jest uważany za znak. Jeśli bit 15 wynosi 0, liczba jest dodatnia; jeśli 1, liczba jest ujemna. Liczby ujemne mają taką samą wartość jak 65536 minus liczba. Na przykład -127 odpowiada liczbie bez znaku 65409, ponieważ 65536 - 127 = 65409<p> Kilka przykładów:<table class='data numbers'><tr><th> dziesiętny ze znakiem</th><th> dziesiętny bez znaku</th><th> 16-bitowy binarny</th><th> Klątwa</th></tr><tr><td> 32767</td><td> 32767</td><td> 01111111111111111</td><td> 7FFF</td></tr><tr><td> 1</td><td> 1</td><td> 00000000000000001</td><td> 0001</td></tr><tr><td> 0</td><td> 0</td><td> 000000000000000</td><td> 0000</td></tr><tr><td> -1</td><td> 65535</td><td> 1111111111111111111</td><td> FFFF</td></tr><tr><td> -2</td><td> 65534</td><td> 11111111111111110</td><td> FFFE</td></tr><tr><td> -3</td><td> 65533</td><td> 11111111111111101</td><td> FFFD</td></tr><tr><td> -32768</td><td> 32768</td><td> 1000000000000000</td><td> 8000</td></tr></table><p></div>",
+      "spoilers": [
+         "Zbadaj, jak inwersja bitowa ( <b>inv16</b> ) wpływa na liczbę",
+         "Odwrócenie liczby to 65535 minus liczba. Liczba ujemna to 65536 minus liczba.",
+         "A - B = A + INV(B) + 1"
+      ],
+      "debriefing": "Gratulacje, zbudowałeś komponenty do podstawowych operacji arytmetycznych.<p> Współczesne procesory obsługują znacznie bardziej złożone operacje arytmetyczne, takie jak mnożenie, dzielenie i liczby zmiennoprzecinkowe, ale w tej grze po prostu utrzymujemy prostotę i tworzymy niezbędne minimum dla działającego procesora."
+    },
+    "ISZERO": {
+      "title": "Równe zero",
+      "splash": "<p>Teraz zbuduj komponent, który wskazuje, czy liczba wynosi zero. Najpierw implementujemy to dla liczby czterobitowej.",
+      "specification": "<p>Powinna wyprowadzić 1 wtedy i tylko wtedy, gdy wszystkie bity na wejściu mają wartość 0.",
+      "debriefing": "To podejście można w prosty sposób rozszerzyć do 16-bitów, więc mamy komponent, który sprawdza, czy 16-bitowa liczba wynosi zero."
+    },
+    "SIGN": {
+      "title": "Mniej niż zero",
+      "splash": "<p>Teraz zaprojektuj komponent, który wskazuje, czy 16-bitowa liczba jest ujemna.",
+      "specification": "<p>Wyjścia 1, jeśli wejście jako liczba 16-bitowa jest ujemna<p> Specyfikacja: <table class='data'><colgroup class=input><col></colgroup><colgroup class=output><col></colgroup><tr><th> Wejście</th><th> Wyjście</th></tr><tr><td> wejście &gt;= 0</td><td> 0</td></tr><tr><td> wejście &lt; 0</td><td> 1</td></tr></table> Liczba jest uważana za mniejszą od zera, jeśli bit 15 wynosi 1.<h3> Numeracja bitów</h3> Bity są ponumerowane od prawej do lewej, zaczynając od 0 jako najbardziej prawego bitu. Tak więc bit 15 jest skrajnym lewym bitem w 16-bitowym słowie.",
+      "elaboration": "Na potrzeby tego komponentu interpretujemy 16-bitową wartość jako liczbę całkowitą ze znakiem, a skrajny lewy bit jako znak.<p> Do przybornika dodaliśmy <b>rozdzielacz</b> . Splitter dzieli 16-bitową magistralę na 16 pojedynczych złączy. Za pomocą rozdzielacza można zbadać poszczególne bity 16-bitowego wejścia. Splitter nie posiada żadnej wewnętrznej logiki.<div class=subject><h3> Liczby podpisane i niepodpisane</h3><p> Ta sama 16-bitowa wartość może być interpretowana jako liczba całkowita ze znakiem lub bez znaku. Przykłady dla niektórych liczb w okolicy 0:<table class='data numbers'><tr><th> 16-bitowy binarny</th><th> Klątwa</th><th> dziesiętny bez znaku</th><th> dziesiętny ze znakiem</th></tr><tr><td> 00000000000000001</td><td> 0001</td><td> 1</td><td> 1</td></tr><tr><td> 000000000000000</td><td> 0000</td><td> 0</td><td> 0</td></tr><tr><td> 1111111111111111111</td><td> FFFF</td><td> 65535</td><td> -1</td></tr><tr><td> 11111111111111110</td><td> FFFE</td><td> 65534</td><td> -2</td></tr><tr><td> 11111111111111101</td><td> FFFD</td><td> 65533</td><td> -3</td></tr></table><p> Dogodnie dodawanie i odejmowanie działają dokładnie tak samo, niezależnie od tego, czy liczby interpretujemy jako ze znakiem, czy bez znaku. Oznacza to, że procesor tak naprawdę nie musi znać różnicy. [DO ZROBIENIA: link do samouczka uzupełniającego do dwójek]</div>",
+      "spoilers": [
+         "Nie potrzebujesz żadnych elementów logicznych, tylko rozdzielacz."
+      ]
+    },
+    "MULTIPLEXER": {
+      "title": "Multiplekser",
+      "specification": "<p>Komponent <b>wyboru</b> wybiera jeden z dwóch bitów wejściowych na wyjście.<p> Bit <b>s</b> (wybór) wskazuje, które wejście zostało wybrane: Jeśli wybrano 0, <b>d0</b> , jeśli wybrano 1, <b>d1</b> .",
+      "elaboration": "<p>Ten komponent jest również znany jako <b>multiplekser</b> ."
+    },
+    "DEMUX": {
+      "title": "Demultiplekser",
+      "splash": "Następnie zbuduj <b>przełącznik</b> , który przesyła bit danych przez jeden z dwóch kanałów wyjściowych.",
+      "specification": "<p>Komponent <b>przełączający</b> przesyła bit danych przez jeden z dwóch kanałów wyjściowych.<p> <b>s</b> (selektor) określa, czy bit <b>d</b> (danych) jest przesyłany przez <b>c1</b> lub <b>c0</b> ."
+    },
+    "SR_LATCH": {
+        "splash": "<p>Zbudowane do tej pory komponenty nie mają pamięci.<p> Tym razem Twoim zadaniem jest zbudowanie <b>zatrzasku</b> , elementu, który może przechowywać jeden bit."
+    },
+    "LATCH": {
+      "title": "Zatrzaska",
+      "specification": "<p>Komponent <b>zatrzasku</b> przechowuje i wysyła pojedynczy bit<p> Gdy <b>st</b> (store) wynosi 1, wartość na <b>d</b> jest przechowywana i emitowana.<p> Gdy <b>st</b> wynosi 0, wartość <b>d</b> jest ignorowana, a poprzednio zapisana wartość jest nadal emitowana.<p> Aby opisać to w tabeli wejścia/wyjścia, wprowadzamy zmienną <b>out</b> , której można przypisać wartość bitową i zachować ją: </p><table class='data'><colgroup class=input><col><col></colgroup><colgroup class=input><col></colgroup><colgroup class=output><col></colgroup><tr><th colspan=2> Wejście</th><th> Efekt</th><th> Wyjście</th></tr><tr><th> st</th><th> d</th><th></th><th></th></tr><tr><td> 1</td><td> 0</td><td> ustawione <b>na</b> 0</td><td> <b>na zewnątrz</b></td></tr><tr><td> 1</td><td> 1</td><td> ustawić <b>na</b> 1</td><td> <b>na zewnątrz</b></td></tr><tr><td> 0</td><td> 1</td><td> -</td><td> <b>na zewnątrz</b></td></tr><tr><td> 0</td><td> 0</td><td> -</td><td> <b>na zewnątrz</b></td></tr></table>",
+      "spoilers": [
+         "Będziesz musiał użyć połączenia okrągłego - połączenia, w którym wyjście komponentu jest używane jako jedno z wejść tego samego komponentu"
+      ]
+    },
+    "DFF": {
+      "title": "Przerzutnik",
+      "splash": "<p>Za pomocą zatrzasków możesz zbudować obwód, który z czasem zmienia swój stan.<p> Ale wtedy pojawia się problem: ponieważ zmiany stanu nie są zsynchronizowane na torze, zmiany falują na torze w nieprzewidywalnej kolejności, prowadząc do warunków wyścigowych i ogólnie nieprzewidywalnych wyników.<p> Rozwiązaniem jest <b>sygnał zegarowy</b> , wartość bitu, która zmienia się automatycznie i która jest połączona ze wszystkimi komponentami stanowymi.<p> Jeśli komponenty zmieniają wyjście tylko wtedy, gdy zmienia się sygnał zegara, wówczas zmiany zachodzą w całym obwodzie w tym samym czasie i unikamy problemów z synchronizacją.<p> W tym zadaniu zbudujesz komponent <b>przerzutnika</b> , który przechowuje bit, gdy sygnał zegara wynosi 0, ale zaczyna emitować zapisany bit dopiero, gdy sygnał zegara zmienia się na 1.",
+      "specification": "<p>Komponent <b>DFF</b> (Data Flip-Flop) przechowuje i wysyła bity, ale zmienia wyjście tylko wtedy, gdy sygnał zegara zmieni się z 0 na 1.<p> Gdy <b>st</b> (zapis) wynosi 1, a <b>cl</b> (sygnał zegara) wynosi 0, wartość na <b>d</b> jest zapamiętywana. Ale poprzednia wartość jest nadal emitowana.<p> Gdy sygnał zegara zmieni się na 1, przerzutnik zaczyna emitować nową wartość.<p> Gdy <b>st</b> wynosi 0, wartość <b>d</b> nie ma żadnego wpływu.<p> Gdy <b>cl</b> wynosi 1, wartości <b>st</b> i <b>d</b> nie mają żadnego wpływu.<p> Aby opisać to w tabeli, potrzebne są dwie zmienne, <b>in</b> i <b>out</b> : <table class=\"data\"><colgroup class=input><col><col><col></colgroup><colgroup class=input><col></colgroup><colgroup class=output><col></colgroup><tr><th colspan=3> Wejście</th><th> Efekt</th><th> Wyjście</th></tr><tr><th> st</th><th> d</th><th> cl</th><th></th><th></th></tr><tr><td> 1</td><td> 0</td><td> 0</td><td> ustawione <b>na</b> 0</td><td> <b>na zewnątrz</b></td></tr><tr><td> 1</td><td> 1</td><td> 0</td><td> ustawione <b>na</b> 1</td><td> <b>na zewnątrz</b></td></tr><tr><td> 0</td><td> -</td><td> 0</td><td> -</td><td> <b>na zewnątrz</b></td></tr><tr><td> -</td><td> -</td><td> 1</td><td> wyruszyć <b>w</b> <b>podróż</b></td><td> <b>na zewnątrz</b></td></tr></table>",
+      "elaboration": "<p>Sygnał zegarowy jest jak metronom, powodując, że wszystkie komponenty zmieniają się zgodnie.<p> <b>Cykl zegara</b> to zakres sygnału zegarowego zmieniający się od 0 do 1, a następnie od 1 z powrotem do 0.<p> W prawdziwym procesorze sygnał zegarowy jest wyzwalany przez jakiś wibrujący kryształ. W tej grze sygnał zegara jest wprowadzany ręcznie, dzięki czemu możesz ręcznie przetestować obwód.<p> <b>Częstotliwość zegara</b> określa, jak szybko zmienia się zegar. Im wyższa częstotliwość zegara, tym szybciej działa komputer.<p> Uwaga: wbrew nazwie „zegar” sam w sobie nie odmierza czasu. Zapewnia tylko regularny rytm. Ale w połączeniu z licznikiem można zbudować komponent, który śledzi czas.",
+      "spoilers": [
+         "Musisz użyć dwóch zatrzasków.",
+         "Jeden zatrzask powinien być zapisany, gdy cl=1, następny zatrzask powinien być zapisany od pierwszego zatrzasku, gdy cl=0."
+      ]
+    },
+    "DFF2": {
+      "title": "Rejestr 2 bitowy",
+      "splash": "<p>Możesz teraz przechowywać pojedynczy bit danych.<p> W tej misji musisz połączyć dwa przerzutniki danych (DFF), aby przechowywać i pobierać <b>dwa</b> bity danych w jednej operacji.<p> (Ostatecznie chcemy przechowywać i pobierać słowa 16-bitowe na raz, ale jeśli wymyślisz, jak przechowywać dwa bity, przechowywanie większych zestawów jest trywialne.)",
+      "specification": "<p><b>2-bitowy składnik DFF</b> działa jak przerzutnik danych, z wyjątkiem tego, że zamiast jednego są przechowywane i emitowane dwa bity ( <b>d1</b> i <b>d0</b> ).",
+      "elaboration": "Projekt pamięci dwubitowej można banalnie powtórzyć. Powtarzamy to, aby uzyskać 16-bitową jednostkę pamięci. Ten składnik nazywamy <b>rejestrem</b> .",
+      "debriefing": "Projekt dla 2-bitowej jednostki pamięci można łatwo powtórzyć, aby wygenerować jednostkę 8, 16 lub 32-bitową.<p> Ponieważ budujesz 16-bitowy komputer, 16-bitowa jednostka pamięci (zwana <b>rejestrem</b> ) została wygenerowana i dodana do twojego zestawu narzędzi."
+    },
+    "COUNTER": {
+      "title": "Licznik",
+      "splash": "<p>Kolejnym zadaniem jest zbudowanie licznika, który zwiększa liczbę w każdym cyklu zegara.<p> Liczniki są podstawowym elementem procesora, ponieważ sterują wykonywaniem instrukcji.",
+      "specification": "<p>Składnik <b>licznika</b> zwiększa liczbę dla każdego cyklu zegara.<p> Wyjście licznika zmienia się, gdy <b>cl</b> (sygnał zegara) zmienia się na 1.<p> Jeśli <b>st</b> wynosi 0, poprzednia wartość licznika jest zwiększana o 1.<p> Jeżeli <b>st</b> (store) wynosi 1, to wartość wejściowa <b>X</b> jest używana jako nowa wartość licznika.<p> Aby opisać to w tabeli, potrzebne są dwie zmienne, <b>in</b> i <b>out</b> , które przechowują liczby 16-bitowe: <table class=\"data\"><colgroup class=input><col><col></colgroup><colgroup class=input><col></colgroup><colgroup class=output><col></colgroup><tr><th colspan=2> Wejście</th><th> Efekt</th><th> Wyjście</th></tr><tr><th> st</th><th> cl</th><th></th><th></th></tr><tr><td> 0</td><td> 0</td><td class=text> ustawiony <b>na</b> <b>zewnątrz</b> + 1</td><td> <b>na zewnątrz</b></td></tr><tr><td> 1</td><td> 0</td><td class=text> ustawione <b>na</b> <b>X</b></td><td> <b>na zewnątrz</b></td></tr><tr><td> -</td><td> 1</td><td class=text> wyruszyć <b>w</b> <b>podróż</b></td><td> <b>na zewnątrz</b></td></tr></table>",
+      "spoilers": [
+         "Potrzebujesz jednego składnika rejestru."
+      ]
+    },
+    "RAM": {
+      "title": "Pamięć RAM",
+      "splash": "<p>Możesz teraz zapisać 16-bitowe słowo w rejestrze.<p> Możemy uzyskać więcej pamięci po prostu układając te rejestry w stos.<p> Ale ponieważ procesor działa na słowie na raz, potrzebujemy sposobu na wybieranie i zmienianie poszczególnych słów w większym banku pamięci.<p> Używamy do tego adresów pamięci.<p> Każdemu słowu w pamięci przypisujemy numer, dzięki czemu możemy pobrać lub nadpisać słowo za pomocą tego numeru.<p> W tej misji musisz użyć dwóch rejestrów i zaadresować je jednym bitem.",
+      "specification": "<p>Zbuduj jednostkę pamięci z dwoma 16-bitowymi rejestrami, która jest adresowalna i zapisywalna przy użyciu adresu jednobitowego.<h3> Wejście</h3><p> <b>ad</b> (adres) wskazuje, do której jednostki pamięci mamy dostęp.<p> <b>st</b> (store) wskazuje, czy chcemy pisać do jednostki.<ul><li> Jeśli 1, wartość na <b>X</b> jest przechowywana w urządzeniu.<li> Jeśli 0, to <b>X</b> jest ignorowane.</ul><p> <b>X</b> (dane) to wartość 16-bitowa.<p> <b>cl</b> (sygnał zegara) synchronizuje zmiany stanu. <b>X</b> jest przechowywane, gdy <b>cl</b> = 0, ale jest emitowane tylko wtedy, gdy <b>cl</b> zmienia się na 1.<h3> Wyjście</h3><p> Wartość aktualnie przechowywana w jednostce adresowanej przez <b>ad</b> .",
+      "elaboration": "<p>Pamięć wielkości dwóch słów to niewiele. Ale jeśli uda nam się to zadziałać, możemy powtórzyć ten projekt rekurencyjnie, aby uzyskać 4, 8, 16 itd.<h3> Adresowanie</h3><p> Numerujemy słowa danych w pamięci licząc od 0. Numer słowa pamięci nazywamy jego <b>adresem</b> . Podczas odczytu lub zapisu komórki pamięci używamy jej adresu, aby uzyskać do niej dostęp.<p> Posiadanie dwóch komórek oznacza, że mamy tylko dwa adresy, które można wybrać jednym bitem. Ponieważ mamy 16-bitową architekturę, możemy obsługiwać do 16-bitowych adresów, co z kolei oznacza, że możemy adresować 65 536 słów danych.<p> Ten rodzaj pamięci nazywa się RAM (Random Access Memory), ponieważ możemy uzyskać dostęp do dowolnej komórki i aktualizować jej wartość, o ile znamy jej adres.<div class=subject><h3> Bajty i KB</h3><p> Pojemność pamięci (RAM i inna pamięć masowa) jest mierzona w <b>bajtach</b> , gdzie bajt to 8 bitów. Ponieważ mamy architekturę 16-bitową, przechowujemy i pobieramy słowa 16-bitowe na raz, każde słowo ma 2 bajty. Możemy mieć 65536 komórek pamięci (ponieważ 65535 to najwyższa liczba, jaką można wyrazić w 16 bitach), więc mierzona w bajtach mamy podwójną liczbę, 131 072 bajty. Jest to zwykle zapisywane jako 128 KB (KB = kilobajty).<p> Jak 131 072 staje się 128K? Wynika to z cudownego faktu, że przy mierzeniu bajtów K nie oznacza 1000 (jak w przypadku każdego innego pomiaru), ale 1024. A 128*1024 = 131 072.</div>",
+      "debriefing": "<p>Ten projekt 2-bitowej adresowalnej pamięci RAM można powtarzać rekursywnie w celu zbudowania większych jednostek pamięci RAM."
+    },
+    "ALU_PRESET": {
+      "title": "Jednoargumentowy ALU",
+      "splash": "<p>Wszystkie dotychczas zbudowane komponenty wykonały jedną konkretną operację.<p> Jednostka ALU (arytmetyczna jednostka logiczna) jest podstawowym komponentem, który może wykonywać zestaw różnych operacji logicznych i arytmetycznych, takich jak dodawanie, odejmowanie i odwracanie.<p> Zestaw bitów kontrolnych określa, jaką operację należy wykonać.<p> ALU jest wdrażany w dwóch krokach. Pierwszym krokiem jest „jednoargumentowa jednostka ALU”, która odwraca dane wejściowe lub zastępuje je zerem.",
+      "specification": "<p><b>Jednoargumentowa jednostka ALU</b> modyfikuje pojedyncze wejście <b>X</b> . Dwie flagi wybierają operacje do zastosowania.<p> Jeśli <b>z</b> (zero) wynosi 1, to na wyjściu zamiast wejścia jest 0<p> Jeśli <b>n</b> (negacja) wynosi 1, to wejście jest odwrócone<p> Kolejność jest istotna, więc jeśli oba są 1, wyjściem będzie inwersja 0.<p> Specyfikacja: <table class='data'><colgroup class=input><col><col></colgroup><colgroup class=output><col></colgroup><tr><th colspan=2>Wejście</th><th> Wyjście</th></tr><tr><th> z</th><th> n</th><th></th><th></th></tr><tr><td> 0</td><td> 0</td><td> X niezmodyfikowane</td></tr><tr><td> 1</td><td> 0</td><td> 0</td></tr><tr><td> 0</td><td> 1</td><td> Odwróć X</td></tr><tr><td> 1</td><td> 1</td><td> Odwróć 0</td></tr></table>",
+      "elaboration": "<h3>Projekt jednostki arytmetyczno-logicznej (ALU)</h3><p> ALU to komponent, który może wykonywać różne operacje arytmetyczne i logiczne. Istnieją dwa wejścia, X i Y, oraz zestaw opcji (flag), które określają, jaką operację wykonać na wejściach.<p> Niektóre z operacji, które może wykonać, to dodawanie (X+Y), odejmowanie (XY lub YX), logiczne i (X i Y), logiczne lub (X lub Y). Może również wykonywać operacje na jednym wejściu (i ignorować inne); na przykład inkrementacja (X+1), dekrementacja (X-1), odwrócenie X i zanegowanie X (0-X).<p> Może się wydawać, że potrzebujemy bardzo złożonego komponentu do obsługi wszystkich tych operacji. Ale okazuje się, że możemy je osiągnąć, łącząc tylko dwie operacje z dwiema możliwymi modyfikacjami każdego wejścia i wyjścia.<p> Na przykład widzieliśmy na poziomie „odejmowania”, że odejmowanie może być zaimplementowane w kategoriach dodawania, jeśli możemy odwrócić jedno wejście i wyjście. Na poziomie „przyrostu” widzieliśmy, że inkrementację (dodawanie 1 do X) można zaimplementować poprzez zastąpienie Y wartością 0, a następnie odwrócenie i odjęcie.<p> Wystarczy odwrócić i/lub zerować dowolne z dwóch wejść i być może wyjścia, możemy zaimplementować całą masę operacji arytmetycznych.<p> Wdrażamy więc ALU w dwóch etapach. Najpierw budujemy jednoargumentowy składnik, który może odwrócić i/lub wyzerować dane wejściowe. (&quot;unary&quot; oznacza, że operuje na jednej liczbie) W kolejnym etapie łączymy modyfikatory wejścia/wyjścia z operacjami binarnymi, aby skompletować ALU."
+    },
+    "ALU": {
+      "title": "ALU",
+      "splash": "<p>Możemy teraz zbudować samo ALU.<p> Istnieją dwie 16-bitowe wartości wejściowe i sześć indywidualnych opcji, które określają, jakie operacje są wykonywane na wejściu.",
+      "specification": "<p>ALU (jednostka arytmetyczna/logiczna) wykonuje jedną lub więcej operacji na dwóch wartościach wejściowych <b>X</b> i <b>Y</b> .<p> Sześć flag określa, jakie operacje należy wykonać. Każda flaga wyzwala operację, gdy flaga wynosi 1:<table><tr><th> zx</th><td> Użyj 0 dla X</td></tr><tr><th> nx</th><td> Odwróć X</td></tr><tr><th> zy</th><td> Użyj 0 dla Y</td></tr><tr><th> ny</th><td> Odwróć Y</td></tr><tr><th> f</th><td> wybiera operację:<br /> 0: wyjście to X I Y<br /> 1: wyjście to X + Y</td></tr><tr><th> nie</th><td> Odwróć wyjście</td></tr></table><p> Flagi można łączyć, a określona kolejność jest znacząca.<p> Na przykład, jeśli zarówno <b>zx</b> , jak i <b>nx</b> wynoszą 1, to X jest odwrócone 0.",
+      "elaboration": "<p>Łącząc sześć flag, możesz wykonywać szeroki zakres operacji arytmetycznych.<p> Kilka przykładów:<table class='data numbers'><tr><th> zx</th><th> nx</th><th> zy</th><th> ny</th><th> f</th><th> nie</th><th> wynik</th></tr><tr><td> 0</td><td> 0</td><td> 0</td><td> 0</td><td> 1</td><td> 0</td><td> X + Y</td></tr><tr><td> 0</td><td> 0</td><td> 1</td><td> 1</td><td> 1</td><td> 0</td><td> X - 1</td></tr><tr><td> 0</td><td> 0</td><td> 0</td><td> 0</td><td> 0</td><td> 0</td><td> X i Y</td></tr><tr><td> 0</td><td> 1</td><td> 0</td><td> 0</td><td> 1</td><td> 1</td><td> X - Y</td></tr><tr><td> 1</td><td> 0</td><td> 1</td><td> 0</td><td> 0</td><td> 0</td><td> 0</td></tr><tr><td> 1</td><td> 1</td><td> 1</td><td> 1</td><td> 1</td><td> 1</td><td> 1</td></tr></table><p> Może nie być od razu oczywiste, dlaczego określona kombinacja flag powoduje określony wynik, ale możesz wypróbować je samodzielnie, aby zobaczyć, jak to działa.<p> (Projekt ALU jest oparty na <a href=\"https://www.nand2tetris.org/\">kursie Nand to Tetris</a> i jest używany tutaj za zgodą.)"
+    },
+    "OPCODES1": {
+      "title": "Kody operacyjne (OP-codes)",
+      "specification": "<p>Wybierz kombinację flag bitowych dla jednostki ALU, która odpowiada wyrażeniu kodu operacji.</p><p> Większość wyrażeń nie wymaga wyjaśnień.</p><p> <b>~</b> to inwersja bitowa: Odwróć wszystkie bity na wejściu</p><p> <b>&amp;</b> jest bitowy <b>i</b><p> <b>|</b> jest bitowa <b>lub</b><p> Uwaga: Niektóre wiersze mogą mieć kilka prawidłowych rozwiązań.",
+      "spoilers": [
+         "Pamiętaj z poziomu odejmowania, że odwrócenie bitowe liczby równa się minus plus jeden. ~X = -X-1",
+         "Zatem flaga <b>nx</b> daje -X-1, a flaga <b>ny</b> daje -Y-1"
+      ],
+      "elaboration": "Ten poziom pokazuje, jak różne operacje logiczne i arytmetyczne mogą być wykonywane tylko przez różne kombinacje flag bitowych. Pokazuje również przeznaczenie <b>opkodów</b> , które są tekstowymi lub symbolicznymi reprezentacjami odpowiednich zestawów bitów. Kody operacyjne są znacznie łatwiejsze do odczytania i zrozumienia przez ludzi w porównaniu z surowymi zestawami bitów lub liczbami binarnymi.</p><p> Dlatego programy są zwykle pisane przy użyciu kodów operacyjnych, które są następnie tłumaczone na liczby binarne przez narzędzie.</p>"
+    },
+    "CONDITION": {
+      "title": "Warunki",
+      "specification": "<p>Trzy flagi wskazują trzy możliwe warunki dla liczby <b>X</b> :<table class='data text'><tr><th> Flaga</th><th> Stan : schorzenie</th><tr><td> <b>to</b></td><td> Mniej niż zero</td><tr><td> <b>równ</b></td><td> Równe zero</td><tr><td> <b>g</b></td><td> Większe niż zero</td></table><p> Jeśli flaga dla spełnienia warunku wynosi 1, wynikiem jest 1.<p> Flagi można łączyć w taki sposób:<table class='data'><tr><th colspan=3> Flagi</th><th> Wyjście 1, gdy</th></tr><tr><th> to</th><th> równ</th><th> g</th><th></th></tr><tr><td> 0</td><td> 0</td><td> 0</td><td> Nigdy</td></tr><tr><td> 0</td><td> 0</td><td> 1</td><td> X &gt; 0</td></tr><tr><td> 0</td><td> 1</td><td> 0</td><td> X = 0</td></tr><tr><td> 0</td><td> 1</td><td> 1</td><td> X ≥ 0</td></tr><tr><td> 1</td><td> 0</td><td> 0</td><td> X &lt; 0</td></tr><tr><td> 1</td><td> 0</td><td> 1</td><td> X ≠ 0</td></tr><tr><td> 1</td><td> 1</td><td> 0</td><td> X ≤ 0</td></tr><tr><td> 1</td><td> 1</td><td> 1</td><td> Zawsze</td></tr></table>",
+      "spoilers": [
+         "Tylko jeden z trzech warunków może być jednocześnie spełniony.",
+         "Dostępne są już komponenty umożliwiające określenie dwóch pierwszych warunków.",
+         "„X ≤ 0” oznacza, że X jest mniejsze niż 0 <i>lub</i> równe zero.",
+         "Wyjście to 1, jeśli <b>lt</b> =1 i X&lt;0 lub <b>eq</b> =1 i X=0 lub <b>gt</b> =1 i X&gt;0."
+      ]
+    },
+    "CPU_STATE": {
+      "title": "Połączona pamięć",
+      "splash": "Procesor korzysta z obu rodzajów pamięci, rejestrów i pamięci RAM.<p> Rejestry są bezpośrednio dostępne dla procesora i wykorzystywane do wartości pośrednich i obliczeń. RAM może przechowywać dużą ilość danych, ale jednocześnie możemy odczytywać lub pisać tylko z jednego adresu.<p> W tym procesorze mamy dwa rejestry o nazwach <b>A</b> i <b>D</b> oraz jeden bank pamięci RAM.<p> W tej misji połącz dwa rejestry z bankiem pamięci RAM.",
+      "specification": "<p>Pamięć procesora składa się z dwóch 16-bitowych rejestrów zwanych A i D oraz jednostki RAM.<p> Flagi <b>a</b> , <b>d</b> , <b>*a</b> oraz wejście <b>X</b> są używane do aktualizacji jednego lub więcej rejestrów.<table class='data text'><tr><th> Flaga</th><th></th></tr><tr><td> a</td><td> Napisz X do rejestru A</td></tr><tr><td> d</td><td> Zapisz X do rejestru D</td></tr><tr><td> *a</td><td> Zapisz X do pamięci RAM pod adresem podanym przez rejestr A</td></tr></table><p> Flagi można łączyć, więc <b>X</b> jest jednocześnie zapisywane w wielu rejestrach. Jeśli wszystkie trzy flagi mają wartość 0, wejście X jest ignorowane.<p> <b>cl</b> to sygnał zegarowy.<table class='data text'><tr><th> Wyjście</th><th></th></tr><tr><td> A</td><td> Aktualna wartość rejestru A</td></tr><tr><td> D</td><td> Aktualna wartość rejestru D</td></tr><tr><td> *A</td><td> Aktualna wartość w pamięci RAM pod adresem podanym przez A w rejestrze</td></tr></table>",
+      "elaboration": "<p>Nasz procesor ma dwa poziomy pamięci: rejestry i RAM.<p> RAM ma zdecydowanie największą pojemność, ale ponieważ potrzebujemy adresów do odczytu z pamięci RAM i ponieważ potrzebujemy przechowywać wartości pośrednie, mamy dwa rejestry do tych celów: A (dla adresu) i D (dla danych).<p> Procesor w świecie rzeczywistym może mieć kilkanaście rejestrów lub więcej, ale w naszym procesorze używamy tylko dwóch, ponieważ jest to mniej więcej minimum, które można uzyskać na sucho.<h3> Flagi</h3><p> <i>Flaga</i> to termin określający bit wejściowy, który wybiera pojedynczą opcję. Jeśli jest wiele flag, można je włączać i wyłączać niezależnie. Na przykład w tym komponencie flagi <b>a</b> , <b>d</b> i <b>*a</b> mogą być ustawione w dowolnej kombinacji, w tym wszystkie trzy lub żadna."
+    },
+    "IO": {
+      "title": "Wejście i wyjście",
+      "splash": "<p>Aby mieć jakikolwiek użytek, komputer musi być w stanie komunikować się ze światem zewnętrznym.<p> Dzieje się tak za pomocą urządzeń sprzętowych, takich jak ekran, klawiatura, czujniki dotykowe, interfejs sieciowy i tak dalej.<p> Na tym poziomie integrujemy się ze sprzętem prostego robota - silnikami i czujnikami.</p>",
+      "specification": "<p>Zintegruj się ze sprzętem <b>robota</b> , dzięki czemu można go zapisywać i odczytywać jak adres pamięci.<p> Sygnały wejściowe powinny być wysyłane do sprzętu, gdy <b>st</b> (zapis) wynosi 1, a <b>cl</b> (sygnał zegara) wynosi 1.<p> Sygnały wyjściowe powinny być czytelne natychmiast<p> Mapowanie bitów wejściowych w <b>X</b> na sygnały sterujące urządzeniem:<table class=data><tr><th> fragment</th><th> Sygnał sterujący</th></tr><tr><td> 15</td><td> lo</td></tr><tr><td> 14</td><td> jeśli</td></tr><tr><td> 13</td><td> mv</td></tr><tr><td> 12</td><td> stp</td></tr><tr><td> 11</td><td> tl</td></tr><tr><td> 10</td><td> tr</td></tr><tr><td> 09</td><td> z p</td></tr></table><p> Mapowanie czujników urządzenia na bity wyjściowe:<table class=data><tr><th> fragment</th><th> Wyjście czujnika</th></tr><tr><td> 3</td><td> mv</td></tr><tr><td> 2</td><td> tn</td></tr><tr><td> 1</td><td> ob</td></tr><tr><td> 0</td><td> jeśli</td></tr></table>",
+      "elaboration": "<p>Wejście/wyjście <b>mapowane w pamięci</b> oznacza, że połączenia z urządzeniami zewnętrznymi są podłączane do przestrzeni adresowej pamięci obok zwykłych jednostek pamięci RAM.<p> Oznacza to, że procesor może zapisywać do urządzeń wyjściowych i odczytywać z urządzeń wejściowych dokładnie w ten sam sposób, w jaki odczytuje i zapisuje w pamięci.<p>"
+    },
+    "IO2": {
+      "title": "Wejście i wyjście",
+      "splash": "<p>Aby mieć jakikolwiek użytek, komputer musi być w stanie komunikować się ze światem zewnętrznym.<p> Dzieje się tak za pomocą urządzeń sprzętowych, takich jak ekran, klawiatura, czujniki dotykowe, interfejs sieciowy i tak dalej.<p> Na tym poziomie integrujemy się z prostymi urządzeniami sprzętowymi - lampą i przyciskiem.</p>",
+      "specification": "<p>Podłącz lampę i przycisk, aby uzyskać do nich dostęp jak adres pamięci.<p> <b>Wyjście do urządzenia</b></p><p> Lampa jest sterowana przez bit 0 i 1 <b>X</b> :<p> Gdy bit 1 ma wartość 1, lampa powinna otrzymać sygnał <b>włączony</b> . Gdy bit 0 ma wartość 1, lampa powinna otrzymać sygnał on <b>off</b> .<p> Sygnały powinny być wysyłane do sprzętu, gdy <b>st</b> (zapis) wynosi 1, a <b>cl</b> (sygnał zegara) wynosi 1.<p> <b>Wejście z urządzenia</b></p><p> Stan przycisku jest pokazany w bicie 15 wyjścia komponentu.<p> Gdy przycisk jest wciśnięty, bit 15 powinien wynosić 1. Gdy nie jest wciśnięty, powinien wynosić 0.<p> Sygnały wejściowe powinny być czytelne natychmiast",
+      "elaboration": "<p>Wejście/wyjście <b>mapowane w pamięci</b> oznacza, że połączenia z urządzeniami zewnętrznymi są podłączane do przestrzeni adresowej pamięci obok zwykłych jednostek pamięci RAM.<p> Oznacza to, że procesor może zapisywać do urządzeń wyjściowych i odczytywać z urządzeń wejściowych dokładnie w ten sam sposób, w jaki odczytuje i zapisuje w pamięci.<p>"
+    },
+    "PROGRAM1": {
+      "title": "Kod maszynowy",
+      "specification": "<p>Napisz program z czterema instrukcjami:</p><p> 0) Ustaw rejestr D na 0<br> 1) Ustaw rejestr A na 2<br> 2) Dodaj 1 do rejestru D<br> 3) Skocz bezwarunkowo</p><p> Wynikiem wykonania programu powinno być to, że dla każdej iteracji <b>D</b> powinno być inkrementowane o 1.</p><p> Program piszesz ustawiając odpowiednie flagi bitowe dla każdej instrukcji.</p><p> Kliknij <b>Clock Tick</b> na komputerze, aby wykonać jedną instrukcję.</p>"
+    },
+    "ASSEMBLER1": {
+      "title": "Monter",
+      "splash": "<p>Jak zapewne zauważyłeś, pisanie programów w binarnym kodzie maszynowym jest dość żmudne!<p> Aby to ułatwić, używamy <b>języka asemblera,</b> w którym instrukcje są napisane w formie tekstowej. Każdy wiersz w tekście asemblera odpowiada instrukcji kodu maszynowego. Program <b>asemblera</b> następnie tłumaczy tekst na kod maszynowy.</p><p> W tej misji napiszesz program w kodzie asemblera.</p>",
+      "specification": "<p>Napisz program w asemblerze, który spowoduje co najmniej trzykrotne mignięcie zielonej lampki na komputerze.</p><p> Lampa jest mapowana w pamięci na adres 7FFF, bity 1 i 0.<table class='data text'><tr><th> Fragment</th><th> Ustaw na 1, aby:</th></tr><tr><td> 0</td><td> Włącz lampę</td></tr><tr><td> 1</td><td> Wyłącz lampę</td></tr></table><p> Wpływ na urządzenie zewnętrzne ma wpływ tylko wtedy, gdy bit zmienia się z 0 na 1."
+    },
+    "ESCAPE": {
+      "title": "Labirynt ucieczki",
+      "specification": "<p>Komputer utknął w labiryncie na Marsie. Napisz program, który sprawi, że ucieknie z labiryntu.</p><p> Komputer ma podłączone koła i przedni wykrywacz przeszkód. Wejście/wyjście do kół i detektora jest mapowane w pamięci na adres 7FFF:</p><p> <b>Sygnały wyjściowe do urządzeń peryferyjnych:</b></p><table class='data text'><tr><th> Fragment</th><th> Ustaw na 1, aby:</th></tr><tr><td> 2</td><td> Idź do przodu (1 krok)</td></tr><tr><td> 3</td><td> Skręć w lewo (90 stopni)</td></tr><tr><td> 4</td><td> Skręć w prawo (90 stopni)</td></tr></table><p> Ruch/obrót rozpoczyna się, gdy bit zmienia się z 0 na 1, ale jego ukończenie zajmie chwilę.<p> <b>Wejście z urządzeń peryferyjnych:</b></p><table class='data text'><tr><th> Fragment</th><th> Kiedy 1</th></tr><tr><td> 8</td><td> Przeszkoda wykryta z przodu</td></tr><tr><td> 9</td><td> Urządzenie się obraca</td></tr><tr><td> 10</td><td> Urządzenie porusza się do przodu</td></tr></table>"
+    },
+    "ASSEMBLER_DISPLAY": {
+      "title": "Wyświetlacz",
+      "specification": "<p>Wyświetl wybrane przez siebie logo na ekranie.</p><p> Logo może wyglądać tak, jak chcesz, ale powinno mieć co najmniej 16 pikseli szerokości i wysokości.</p><p> Ekran ma 512 x 256 monochromatycznych pikseli, mapowanych w pamięci od adresu 0x4000 do 0x6000. Każdy adres odpowiada 16 pikselom na ekranie. Linie są ciągłe w pamięci, więc pierwsza linia zaczyna się od 0x4000, druga linia zaczyna się od 0x4020 i tak dalej.</p>"
+    },
+    "ASSEMBLER_NETWORK_RECEIVE": {
+      "title": "Sieć",
+      "specification": "<p>Odbieraj dane z innego komputera przez sieć i wyświetlaj je na ekranie</p><p> Ładunek będzie obrazem o szerokości 16 pikseli.</p><p> Szczegółowe informacje na temat używanego protokołu sieciowego można znaleźć w pomocy poziomu.</p><p> Przewody sieciowe są mapowane w pamięci na adres <code>6001</code> (hex), z dwoma znaczącymi bitami: <b>danych</b> (bit 0), który jest bieżącym bitem danych przesyłanych przez przewód, i <b>synchronizacją</b> (bit 1), które zmieniają się, aby wskazać, że nowy bit ma przybył.</p><p> UWAGA: To może być trudne do rozwiązania przy użyciu tylko asemblera. Możesz chcieć zaimplementować makra operacji na stosie, a następnie wrócić do tego wyzwania, gdzie będziesz mógł ich użyć do uproszczenia kodu.</p>",
+      "elaboration": "<p>Sieci przesyłają informacje w postaci sekwencji bitów. W przewodzie miedzianym prąd elektryczny powyżej pewnego poziomu może oznaczać 1, a brak prądu (lub prąd poniżej pewnego progu) oznacza 0. Światłowód wykorzystuje sygnały świetlne, gdzie światło oznacza 1, a brak oznacza 0.</p><h4> Synchronizacja</h4><p> Rodzi to pytanie, jak wiedzieć, kiedy jeden bit się kończy, a zaczyna nowy. Dwie jedynki z rzędu są nie do odróżnienia od jednej jedynki trwającej dłużej. Dlatego protokół sieciowy wymaga pewnego mechanizmu czasowego, aby określić, kiedy kończy się bit.</p><p> Powszechnym rozwiązaniem jest uzgodniony zegar sieciowy, wspólny dla wszystkich stron. Wymaga to dużej precyzji, ponieważ jedna strona dryfująca nieznacznie poza synchronizacją mogłaby zaszyfrować wszystkie dane. Alternatywą jest sieć zsynchronizowana, w której sama sieć przenosi sygnał synchronizacji. Wymaga to większej przepustowości, ale jest prostsze do wdrożenia.</p><p> W tej misji wykorzystujemy zsynchronizowane połączenie z dwoma przewodami. Jeden przewód przenosi dane, a drugi sygnał synchronizacji. Za każdym razem, gdy zmienia się sygnał synchronizacji (z 0 na 1 lub z 1 na 0), z przewodu danych można odczytać nowy bit.</p><p> Wymaga to dwukrotnie większej przepustowości, ale jest proste do wdrożenia.</p><h4> Format wiadomości</h4><p> Kolejne pytanie dotyczy tego, jak określić, kiedy transmisja danych się zaczyna, a kiedy kończy. Jeśli sygnał dla 0 jest taki sam, jak brak transmisji, nie ma możliwości sprawdzenia, czy drugi koniec nadaje 0, transmisja została zakończona! Dlatego protokół (w tej misji) polega na tym, że transmisja zawsze zaczyna się od 1 bitu, po którym następuje 16 bitów danych, a następnie bit kontrolny. Jeśli bit kontrolny wynosi 0, oznacza to zakończenie transmisji. Jeśli bit kontrolny wynosi 1, oznacza to, że nastąpi kolejne 16 bitów danych, po których ponownie nastąpi bit kontrolny. I tak dalej.</p><h4> Pasmo</h4><p> Przepływność sieci musi być na tyle niska, aby procesor mógł odbierać i przetwarzać każdy bit. W rzeczywistości przepływność sieci jest zwykle <i>znacznie</i> wolniejsza niż procesor</p><p> W tej symulacji przepływność sieci jest 100x wolniejsza niż częstotliwość zegara procesora, tj. program może wykonać 100 instrukcji na bit sieci.</p>"
+    },
+    "CMOS_NAND": {
+      "title": "Nand (CMOS)",
+      "splash": "Na pierwszym poziomie zbudowaliśmy bramkę <b>nand</b> z przekaźników elektrycznych. Współczesne komputery zbudowane są z tranzystorów, więc na tym poziomie zamiast przekaźników budujemy bramkę nand z tranzystorów CMOS.",
+      "specification": "<p>Zbuduj bramkę NAND z tranzystorów CMOS.<p> Obwód CMOS wykorzystuje tranzystory jako przełączniki.fnot Istnieją dwa rodzaje: nmos (które łączą się na 1) i pmos (które rozłączają się na 1).<p> <b>1</b> reprezentuje napięcie, a <b>0</b> reprezentuje uziemienie.<p> Wyjście odłączonego tranzystora nie ma wartości 0 ani 1 (wyświetlane jako <b>?</b> ), więc wyjście obwodu powinno być zawsze podłączone do wejścia 0 lub 1.<p> Należy uważać, aby nie zwierać obwodu, podłączając napięcie (1) bezpośrednio do masy (0)."
+    },
+    "CMOS_INV": {
+      "title": "Odwróć (CMOS)",
+      "splash": "<p>Wiemy, że możemy zbudować falownik przy użyciu tylko jednej bramki Nand.</p><p> Kosztowałoby to cztery tranzystory CMOS.</p><p> Ale czy można zaimplementować INV z jeszcze mniejszą liczbą tranzystorów CMOS?",
+      "specification": "<p>Zbuduj bramkę INV z tranzystorów CMOS.</p>"
+    },
+    "CMOS_NOR": {
+      "title": "Ani (CMOS)",
+      "specification": "NOR to uniwersalna bramka logiczna, podobnie jak NAND. Odsyłając tylko bramki NOR, można zbudować dowolną inną bramkę logiczną."
+    },
+    "NOR": {
+      "title": "Ani",
+      "specification": ""
+    },
+    "XNOR": {
+      "title": "Xnor",
+      "specification": ""
+    },
+    "SHL": {
+      "title": "Przesunięcie w lewo",
+      "specification": "<p>Przesuń wszystkie wartości bitowe o jedną pozycję w lewo. Najniższy bit na wyjściu jest ustawiony na 0. Górny bit na wejściu jest odrzucany.</p><p> Odpowiada to pomnożeniu przez 2.</p>"
+    },
+    "MUL16": {
+      "title": "Mnożenie",
+      "specification": "Pomnóż dwie liczby dodatnie. Bity przelewowe należy wyrzucić.",
+      "elaboration": "To trudne zadanie. Aby rozwiązać ten problem, prawdopodobnie będziesz musiał utworzyć wiele niestandardowych komponentów.",
+      "spoilers": [
+         "Mnożenie można zaimplementować jako szereg dodatków",
+         "Przesunięcie bitów w lewo jest takie samo jak mnożenie przez dwa."
+      ]
+    },
+    "MIN16": {
+      "title": "Min",
+      "specification": "Wyprowadza najmniejszą z dwóch 16-bitowych liczb."
+    },
+    "MAX16": {
+      "title": "Maks.",
+      "specification": "Wyprowadza największą z dwóch 16-bitowych liczb."
+    },
+    "SHL16": {
+      "title": "Przesunięcie lufy w lewo",
+      "specification": "<p>Przesuń 16-bitowe wejście 0-3 bity w lewo.<p> Liczba bitów do przeniesienia jest wskazywana przez 2-bitowe wejście <b>licznika</b> ."
+    },
+    "FLOAT_MUL_UNPACKED": {
+      "title": "Mnożenie zmiennoprzecinkowe",
+      "specification": "<p>Pomnóż dwie liczby zmiennoprzecinkowe.<p> <b>sg</b> to znak (0=dodatni, 1=ujemny)<br> <b>exp</b> jest wykładnikiem stronniczym<br> <b>sf</b> oznacza 11 cyfr binarnych."
+    },
+    "FLOAT_PACK": {
+      "title": "Paczka pływaka",
+      "specification": "<p>Normalizuj i pakuj znaki, wykładniki i znaczące części do 16-bitowego formatu zmiennoprzecinkowego.<p> W opakowaniu zbiorczym:<br> bit 15 to znak<br> bit 14-10 to wykładnik<br> bit 9-0 to znormalizowana wartość znacząca.<h3> Przepełnienie/niedomiar</h3><p> Jeśli wykładnik jest poza zakresem 0-31 (tzn. co można przedstawić w 5 bitach), liczba jest nieprawidłowa i wykładnik powinien być ustawiony na 31, a significand na 0.<h3> 0</h3> Jeśli nieznormalizowana significand danych wejściowych wynosi 0, wykładnik również powinien być ustawiony na 0."
+    },
+    "FLOAT_NORMALIZE_OVERFLOW": {
+      "title": "Normalizuj przepełnienie",
+      "specification": "Wartość wejściowa ( <b>sf</b> ) to 11 lub 12 cyfr binarnych. Jeśli znaczek wynosi 12 cyfr, należy go przesunąć do 11 cyfr (bit najmniej znaczący jest odrzucany), a wykładnik powinien wzrosnąć o 1."
+    },
+    "FLOAT_NORMALIZE_UNDERFLOW": {
+      "title": "Normalizuj niedomiar",
+      "specification": "<p>Jeżeli znaczenie wejściowe ( <b>sf</b> ) ma mniej niż 11 cyfr, należy je zmienić na 11 cyfr i odpowiednio dostosować wykładnik."
+    },
+    "FLOAT_VERIFY_EXPONENT": {
+      "title": "Zweryfikuj wykładnik",
+      "specification": "<p>Jeśli wykładnik ( <b>exp</b> ) jest poza zakresem 0-30 (00-1e w systemie szesnastkowym) powinien być ustawiony na 31 (1f w systemie szesnastkowym, 11111 w systemie dwójkowym)."
+    },
+    "FLOAT_UNPACK": {
+      "title": "Rozpakuj pływak",
+      "specification": "<p>Rozpakuj znormalizowaną 16-bitową wartość zmiennoprzecinkową do oddzielnych części znaku, liczby całkowitej i wykładnika.<p> W opakowaniu zbiorczym:<br> bit 15 to znak (0 = dodatni, 1 = ujemny)<br> bit 14-10 jest wykładnikiem obciążonym.<br> bit 9-0 to znormalizowana wartość znacząca<p> Znormalizowany znak oznacza, że 10-bitowy znak jest poprzedzony 1, chyba że wykładnik wynosi 0. W formacie rozpakowanym należy wstawić ten 1, aby otrzymać 11-cyfrowy znak.",
+      "splash": "<p>Poniższa seria opcjonalnych poziomów jest budowaniem arytmetyki zmiennoprzecinkowej. To jest uważane za zaawansowany przedmiot!<p> Liczby zmiennoprzecinkowe mogą reprezentować ułamki i większy zakres liczb w porównaniu z liczbami całkowitymi. Osiąga się to poprzez przedstawienie liczby w dwóch częściach, <b>znaczącej</b> i <b>wykładniku</b> . Odpowiada to zapisowi wykładniczemu, takiemu jak 1,234×10 <sup>8</sup> w postaci dziesiętnej. W tym przykładzie 1,234 jest znaczącym, a 8 wykładnikiem. Tworzymy 16-bitowy format zmiennoprzecinkowy, który ma 10 bitów na significand i 5 bitów na wykładnik."
+    },
+    "FLOAT_MUL": {
+      "title": "Mnożenie zmiennoprzecinkowe",
+      "specification": "Pomnóż dwie liczby zmiennoprzecinkowe w 16-bitowej reprezentacji upakowanej."
+    },
+    "FLOAT_ALIGN": {
+      "title": "Wyrównaj znaczące",
+      "specification": "<p>Dostosuj wykładnik i znaczenie dla dwóch liczb, aby miały ten sam wykładnik.<p> Wspólny wykładnik powinien być najwyższym z wykładników wejściowych. Liczbę z dolnym wykładnikiem należy dostosować do tego samego wykładnika, co może wymagać odrzucenia cyfr znaczącego."
+    },
+    "ADD_SIGNED_MAGNITUDE": {
+      "title": "Dodaj podpisaną wielkość",
+      "specification": "Dodaj dwie liczby w reprezentacji ze znakiem."
+    },
+    "FLOAT_ADD": {
+      "title": "Dodawanie zmiennoprzecinkowe",
+      "specification": "<p>Dodaj dwie liczby zmiennoprzecinkowe."
+    },
+    "STACK_INIT": {
+      "title": "Stos początkowy",
+      "splash": "<p>Jak zapewne zauważyłeś, pisanie kodu przy użyciu tylko dwóch rejestrów jest bardzo ograniczające.</p><p> Za pomocą dwóch rejestrów możesz obliczyć 2 + 2, ale obliczenie 2 - (3 - 2) jest już trudne, ponieważ musisz przechowywać wyniki pośrednie.</p><p> Dlatego przedstawiamy <b>stos</b> , proste, ale bardzo potężne narzędzie.<p><p> Stos to obszar pamięci, w którym możemy przechowywać i pobierać wartości pośrednie w sposób „ostatni weszło-pierwsze wyszło”.<p><p> Używamy pierwszego dostępnego adresu pamięci, adresu 0, do przechowywania <b>wskaźnika stosu</b> (lub SP).<p> Pierwsze ćwiczenie polega na napisaniu kodu inicjującego wskaźnik stosu do adresu pamięci.</p><p> Piszemy to w formie <b>makra</b> o nazwie <code>init.stack</code> . Makro to fragment kodu, który można łatwo ponownie wykorzystać. Jeśli słowo kluczowe <code>init.stack</code> jest używane w asemblerze, zostanie ono zastąpione tym kodem.</p>",
+      "specification": "<p>Ustaw wskaźnik stosu (adres RAM 0) na 256 (wartość szesnastkowa 0100).<p> Pomocne może być zdefiniowanie stałej o nazwie SP o wartości 0."
+    },
+    "STACK_PUSH_D": {
+      "title": "Naciśnij D",
+      "specification": "<p>Przechowywanie nowej wartości na stosie nazywa się <b>odpychaniem</b> .<p> Napisz kod, który odkłada bieżącą wartość rejestru <b>D</b> na szczyt stosu.</p><p> SP należy zwiększyć o jeden</p><p> SP wskazuje adres za wierzchołkiem stosu.</p>"
+    },
+    "STACK_POP_D": {
+      "title": "Pop D",
+      "specification": "<p>Pobieranie wartości ze szczytu stosu nazywamy <b>pobraniem</b> wartości.<p> Napisz kod, który umieszcza wartość na szczycie stosu i zapisuje ją w rejestrze <b>D.</b></p><p> Wskaźnik stosu (SP) powinien zostać zmniejszony o 1, gdy pojawi się wartość</p><p> SP wskazuje adres za wierzchołkiem stosu, więc wartość do pobrania to SP - 1.</p>"
+    },
+    "STACK_POP_A": {
+      "title": "Pop A",
+      "specification": "<p>Napisz kod, który umieszcza wartość na szczycie stosu i zapisuje ją w rejestrze <b>A.</b><p> <b>Ważne kryteria</b> : ta operacja nie może mieć wpływu na rejestr <b>D.</b></p>"
+    },
+    "STACK_PUSH_VALUE": {
+      "title": "Wartość wypychania",
+      "splash": "<p>Teraz wprowadzimy makro używające <i>parametru</i> .<p><p> Po słowie kluczowym makra <code>push.value</code> musi następować liczba, np. <code>push.value 42</code> .</p><p> W przypadku użycia makra zastępcza <code>value</code> słowa kluczowego w kodzie makra zostanie zastąpiona określoną liczbą, tj. <code>42</code> .",
+      "specification": "Włóż <code>value</code> na stos.<p><p> <i>Wskazówka:</i> wartość zostanie podana jako parametr do makra, ale podczas testowania można ustawić wartość w polu Narzędzia testowe."
+    },
+    "STACK_ADD": {
+      "title": "Dodać",
+      "splash": "<p>Za pomocą stosu możemy pisać makra operacje arytmetyczne (dodawanie, odejmowanie itp.), które nie zależą od konkretnych rejestrów. Zamiast tego operacja zdejmuje operandy ze stosu i odkłada wynik operacji z powrotem na stos.</p><p> Takie podejście pozwala nam budować dowolne złożone obliczenia, ponieważ nie jesteśmy już ograniczeni dostępnymi rejestrami.</p>",
+      "specification": "<p>Zdejmij dwie wartości ze stosu, dodaj je i odłóż sumę na stos.</p>"
+    },
+    "STACK_SUB": {
+      "title": "Pod",
+      "specification": "<p>Zdejmij dwie wartości ze stosu, odejmij pierwszą od drugiej, a następnie odłóż wynik z powrotem na stos.</p>"
+    },
+    "STACK_NEG": {
+      "title": "Neg",
+      "specification": "<p>Zanegować wartość na szczycie stosu.</p><p> To jest negacja arytmetyczna, więc negacja 2 będzie równa -2.</p>"
+    },
+    "STACK_AND": {
+      "title": "I",
+      "specification": "<p>Zdejmij dwie wartości ze stosu, wykonaj bitowe AND i odłóż wynik z powrotem na stos.</p>"
+    },
+    "STACK_OR": {
+      "title": "Lub",
+      "specification": "<p>Zdejmij dwie wartości ze stosu, wykonaj bitowe OR i odłóż wynik z powrotem na stos.</p>"
+    },
+    "STACK_PUSH_MEMORY": {
+      "title": "Pamięć Push",
+      "specification": "<p>Wartość na szczycie stosu to adres pamięci.</p><p> Zdejmij adres ze stosu. Pobierz bieżącą zawartość adresu pamięci i odłóż to na stos.</p>"
+    },
+    "STACK_POP_MEMORY": {
+      "title": "Pamięć pop",
+      "specification": "<p>Zdejmij dwie wartości ze stosu. Druga wartość to adres pamięci.</p><p> Zapisz pierwszą wartość do pamięci pod podanym adresem.</p>"
+    },
+    "STACK_PUSH_STATIC": {
+      "title": "Push statyczne",
+      "specification": "<p>Weź bieżącą zawartość adresu pamięci podanego przez symbol zastępczy <code>address</code> i włóż go na stos.</p>"
+    },
+    "STACK_POP_STATIC": {
+      "title": "Pop statyczne",
+      "specification": "<p>Weź wartość ze szczytu stosu i zapisz ją pod adresem pamięci podanym przez symbol zastępczy <code>address</code> .</p>"
+    },
+    "TOKENIZE_EXPRESSION": {
+      "title": "Tokenize",
+      "splash": "<p>Zamierzamy zbudować język programowania wysokiego poziomu. Język wysokiego poziomu ma bardziej przyjazną dla człowieka i elastyczną składnię, która jest następnie <i>kompilowana</i> w instrukcje kodu maszynowego. Na przykład kod wysokiego poziomu <code>2 + 2</code> można skompilować w kod niskiego poziomu:</p><pre class='code'> push.value 2<br> push.value 2<br> DODAJ<br></pre><p> Kompilacja składa się z trzech etapów:<ol><li> (1) tokenizacja<li> (2) Parsowanie<li> (3) Generowanie kodu.</ol><p> Pierwszy krok, tokenizacja, dzieli tekst na jednostki (tzw. <i>tokeny</i> ) reprezentujące liczby, słowa kluczowe i symbole.</p>",
+      "specification": "<p>Tokenizer jest wstępnie skonfigurowany do rozpoznawania liczb i symbolu „+”.</p><p> Skonfiguruj tokenizer tak, aby dodatkowo rozpoznawał symbole minus &#39;-&#39; i nawiasy &#39;(&#39; i &#39;)&#39;.<p> Możesz edytować kod w obszarze kodu źródłowego, aby przetestować sposób jego tokenizacji.</p>"
+    },
+    "GRAMMAR_EXPRESSION": {
+      "title": "Gramatyka",
+      "splash": "<p>Następnym krokiem jest przetworzenie sekwencji tokenów w drzewo składni.</p>",
+      "specification": "<p>Zdefiniuj <b>gramatykę</b> dla wyrażeń zawierających liczby, nawiasy oraz operatory <code>+</code> i <code>-</code> .</p><p> Symbolem początkowym jest <code>Expression</code> .</p><p> Wyrażenie powinno odpowiadać jednemu z:<ul><li> <code>Number</code> tokena</li><li> <i>Wyrażenie</i> <code>+</code> <i>Wyrażenie</i></li><li> <i>Wyrażenie</i> <code>-</code> <i>Wyrażenie</i></li><li> <code>-</code> <i>Wyrażenie</i></li><li> <code>(</code> <i>Wyrażenie</i> <code>)</code></li></ul>",
+      "elaboration": "<p>Składnia języka wysokiego poziomu jest opisana za pomocą <b>gramatyki</b> .</p><p> Gramatyka to zestaw reguł, w których każda reguła nazywa część składni i określa jej skład.</p><p> Na przykład, oto bardzo prosta gramatyka języka, która pozwala na dodanie dwóch liczb, takich jak „ <code>2 + 2</code> ”:</p><pre class='grammar'> <code>Expression → Number + Number</code></pre><p> <code>Number</code> i <code>+</code> to tokeny zdefiniowane na etapie definicji tokenów. Ta składnia pozwoli na dodanie dowolnych dwóch liczb, ale nie pozwoli na wielokrotne dodawanie, takie jak <code>2 + 3 + 4</code> . Do obsługi dowolnych wielu dodatków stosujemy regułę, która odnosi się do siebie:</p><pre class='grammar'> <code>Program → Expression<br> Expression → Expression + Number<br> Expression → Number</code></pre><p> Ta gramatyka pozwoli na nieograniczone dodawanie, ponieważ <code>Expression</code> na lewo od <code>+</code> może samo być dodatkiem.</p><h3> Terminologia</h3><p> Terminy używane w gramatyce nazywane są symbolami. Reguły określają, w jaki sposób symbol (po lewej stronie strzałki) składa się z jednego lub więcej innych symboli (po prawej stronie strzałki). Symbole po prawej stronie strzałki są albo tokenami, które są zdefiniowane przez specyfikację tokena (w poprzednim kroku), albo same są symbolami zdefiniowanymi przez reguły w tej samej gramatyce.</p><p> Symbole reprezentujące tokeny (takie jak <code>Number</code> i <code>+</code> ) nazywane są <i>terminalami</i> , symbole takie jak Program i Wyrażenie , które są zdefiniowane przez inne zasady gramatyki nazywane są <i>nieterminalami</i> .</p><p> Nazwy używane jako symbole nieterminalne są dowolne – możesz używać nazw, które mają dla Ciebie sens. Jedynym warunkiem jest to, że musi istnieć „symbol startowy” o nazwie <code>Program</code> , który reprezentuje cały program.</p><h3> Algorytmy parsowania</h3><p> Na tym poziomie nie piszemy właściwego parsera, który przetwarza tekst źródłowy zgodnie z regułami składni i tworzy drzewo składni. Algorytmy parsera to cała dziedzina informatyki, która jest poza zasięgiem tej gry. To powiedziawszy, najprostsza forma parsera, parser zstępujący rekurencyjny, jest łatwy do napisania i wystarcza do większości celów. To dobre miejsce na początek, jeśli chcesz poznać pisanie własnego parsera.</p><p> Ta gra używa parsera Earleya, który nie jest najszybszy, ale jest elastyczny i łatwy do napisania gramatyki.</p>"
+    },
+    "CODEGEN_EXPRESSION": {
+      "title": "Generowanie kodu",
+      "splash": "<p>Trzecim krokiem w kompilacji jest wygenerowanie kodu maszynowego z drzewa składni.</p><p> Odbywa się to poprzez skojarzenie każdej reguły składni z blokiem kodu asemblera.</p><p> Kompilator następnie generuje kod wynikowy, przechodząc przez drzewo składni i dla każdego węzła w drzewie generuje kod powiązany z regułą.</p>",
+      "specification": "<p>Zdefiniuj generowanie kodu dla reguł składni języka, aby obsługiwać dodawanie i odejmowanie. Możesz użyć operacji na stosie (takich jak ADD i SUB) zdefiniowanych na poprzednich poziomach.</p><p> Szablony generowania kodu często będą musiały zawierać kod innych symboli w regule. Można je wstawić za pomocą nazwy symbolu w nawiasach kwadratowych.</p><p> Na przykład zasada:</p><pre class='grammar'> Wyrażenie → Wyrażenie + Liczba</pre><p> Może mieć szablon kodu:</p><pre class='code'> [Wyrażenie]<br> push.value [liczba]<br> DODAJ</pre><p> Nazwy tokenów, takie jak [Number], zostaną zastąpione rzeczywistą wartością tokena. Nieterminale, takie jak [Wyrażenie], zostaną zastąpione szablonem dla tej reguły (i tak dalej rekursywnie).</p>"
+    },
+    "STACK_EQ": {
+      "title": "Równanie",
+      "specification": "<p>Usuń dwie najwyższe wartości ze stosu i porównaj je. Jeśli są równe, wciśnij wartość -1 ( <code>FFFF</code> w hex). W przeciwnym razie naciśnij 0</p>"
+    },
+    "STACK_GT": {
+      "title": "Gt",
+      "specification": "<p>Usuń dwie najwyższe wartości ze stosu i porównaj je. Jeśli pierwszy jest większy niż drugi, wciśnij wartość -1 ( <code>FFFF</code> w hex). W przeciwnym razie naciśnij 0</p>"
+    },
+    "STACK_LT": {
+      "title": "Lt",
+      "specification": "<p>Usuń dwie najwyższe wartości ze stosu i porównaj je. Jeśli pierwszy jest mniejszy niż drugi, wciśnij wartość -1 ( <code>FFFF</code> w hex). W przeciwnym razie naciśnij 0</p>"
+    },
+    "STACK_NOT": {
+      "title": "Nie",
+      "specification": "<p>Odwróć wartość na szczycie stosu, używając inwersji bitowej.</p>"
+    },
+    "STACK_GOTO": {
+      "title": "Iść do",
+      "specification": "<p>Bezwarunkowy skok do podanej etykiety</p>"
+    },
+    "STACK_IF_GOTO": {
+      "title": "Jeśli-goto",
+      "specification": "<p>Przejdź do etykiety, jeśli wartość na szczycie stosu jest niezerowa</p>"
+    },
+    "CALL": {
+      "title": "połączenie",
+      "splash": "<b>Funkcja</b> jest prawdopodobnie najważniejszą abstrakcją oprogramowania.",
+      "specification": "Połączenie powinno:<p> Umieść bieżące wartości ARGS na stosie</p><p> Wciśnij bieżące wartości LOKALNE.<p> Oblicz nowy adres ARGS, który jest bieżącym SP plus liczba argumentów funkcji plus 3.</p><p> Następnie należy wcisnąć adres zaraz po skoku.</p><p> Przejdź do podanej etykiety (jest to rzeczywiste połączenie)</p><p> Po wykonaniu wywołania funkcji, sterowanie powróci do etykiety następującej po skoku. Zwracana wartość</p><p> Przechowuj bieżącą wartość ARGS w tymczasowym slocie.</p><p> Przywróć wartość ARGS ze stosu</p><p> Przywróć wartość ARGS ze stosu</p><p> Naciśnij RETVAL na stosie</p>",
+      "elaboration": "<p>Funkcje wymagają do współpracy trzech instrukcji. Instrukcja <code>function</code> definiująca początek funkcji, <code>return</code> definiująca koniec funkcji i <code>call</code> wywołujące funkcję.</p><p> Te trzy instrukcje muszą być zgodne ze wspólnym porozumieniem dotyczącym sposobu przekazywania danych do i z funkcji.</p><p> Konwencja dotycząca sposobu implementacji wywołania funkcji nazywana jest <b>konwencją wywoływania</b> .<p> Różne platformy i języki mają nieco inne konwencje wywoływania, ale ogólnie wszystkie używają stosu do przechowywania informacji specyficznych dla wywołania funkcji. Sekcja stosu używana przez wywołanie funkcji nazywana jest <b>ramką stosu</b> .<p> Ramka stosu zawiera:</p><ul><li> Adres zwrotny do powrotu po zakończeniu wykonywania funkcji</li><li> Parametry przekazywane do funkcji</li><li> Zmienne lokalne używane przez funkcję</li><li> Wartość zwracana, reprezentująca wynik wykonania</li></ul>"
+    },
+    "SWAP_REGISTER": {
+      "title": "Rejestr cieni",
+      "splash": "<p>Aby obsługiwać wielozadaniowość i asynchroniczne wprowadzanie danych, procesor musi obsługiwać <b>przerwania</b> .</p><p> W przerwaniu, zewnętrzny sygnał (z czasu lub urządzenia wejściowego) powoduje, że procesor opuszcza bieżące wykonanie i zamiast tego wykonuje wyznaczony blok kodu.</p><p> Wymaga to szybkiego zapisania aktualnego stanu rejestrów i licznika programu, a później przywrócenia stanu sprzed przerwania</p> .<p> W tym celu tworzymy rejestr, który jest wspierany przez rejestr shadow. Po otrzymaniu sygnału „swap” następuje zamiana wartości prądu i cienia.</p>",
+      "specification": "<p>Utwórz komponent, który działa jak rejestr, z wyjątkiem tego, że ma dodatkowy pin, <b>sw</b> , który powoduje zamianę stanu z rejestrem zapasowym.<p>"
+    },
+    "INTERRUPT_TRIGGER": {
+      "title": "Wyzwalacz przerwania",
+      "specification": "<p>Urządzenie może stworzyć przerwanie przez sygnał na przewodzie</p><p> Ale ważne jest, aby podczas obsługi przerwania nie mogło wystąpić żadne nowe przerwanie.</p><p> Więc potrzebujemy flagi, aby wskazać <b>tryb</b> . W trybie zwykłym może wystąpić przerwanie, które przeniesie flagę do trybu przerwania. W trybie przerwania przerwanie jest ignorowane.</p>"
+    },
+    "INTERRUPT_ENGINE": {
+      "title": "Licznik programu",
+      "specification": "<p>Utwórz składnik licznika programu, który obsługuje przerwania</p><p> Podczas normalnej pracy komputer zwiększa się o jeden na</p>"
+    },
+    "MEMORY_PROTECTION": {
+      "title": "Ochrona pamięci",
+      "specification": "<p>Wejście <b>maski</b> określa, które obszary pamięci są dostępne.</p><p> Każdy bit</p><p> Jeśli adres jest chroniony,</p>"
+    }
+  },
+  "components": {
+    "RELAY-ON": {
+      "help": "Przekaźnik elektryczny. Domyślnie łączy z <b>in</b> do wyjścia, ale gdy jest prąd na <b>c</b> , rozłącza się."
+    },
+    "RELAY-OFF": {
+      "help": "Przekaźnik elektryczny. Gdy jest prąd na <b>c</b> , łączy się z <b>in</b> do wyjścia."
+    },
+    "NAND": {
+      "name": "nand",
+      "help": "Brama <b>Nand</b> . Wyjścia 0 wtedy i tylko wtedy, gdy oba wejścia mają wartość 1.<table class='truth'><tr><th colspan=2> Wejście</th><th> Wyjście</th></tr><tr><th> a</th><th> b</th><th></th></tr><tr><td> 0</td><td> 0</td><td> 1</td></tr><tr><td> 1</td><td> 0</td><td> 1</td></tr><tr><td> 0</td><td> 1</td><td> 1</td></tr><tr><td> 1</td><td> 1</td><td> 0</td></tr></table>"
+    },
+    "INV": {
+      "name": "inv",
+      "help": "brama <b>inw</b> . Odwraca wejście.<table class='truth'><tr><th> Wejście</th><th> Wyjście</th></tr><tr><td> 0</td><td> 1</td></tr><tr><td> 1</td><td> 0</td></tr></table>"
+    },
+    "AND": {
+      "name": "and",
+      "help": "<b>i</b> brama. Wyjścia 1, jeśli oba wejścia mają wartość 1.<table class='truth'><tr><th colspan=2> Wejście</th><th> Wyjście</th></tr><tr><th> a</th><th> b</th><th></th></tr><tr><td> 0</td><td> 0</td><td> 0</td></tr><tr><td> 1</td><td> 0</td><td> 0</td></tr><tr><td> 0</td><td> 1</td><td> 0</td></tr><tr><td> 1</td><td> 1</td><td> 1</td></tr></table>"
+    },
+    "OR": {
+      "name": "or",
+      "help": "<b>lub</b> brama. Wyjścia 1, jeśli co najmniej jedno wejście to 1<table class='truth'><tr><th colspan=2> Wejście</th><th> Wyjście</th></tr><tr><th> a</th><th> b</th><th></th></tr><tr><td> 0</td><td> 0</td><td> 0</td></tr><tr><td> 1</td><td> 0</td><td> 1</td></tr><tr><td> 0</td><td> 1</td><td> 1</td></tr><tr><td> 1</td><td> 1</td><td> 1</td></tr></table>"
+    },
+    "XOR": {
+      "name": "xor",
+      "help": "brama <b>xor</b> . Wyjście 1, gdy dwa wejścia są różne.<table class='truth'><tr><th colspan=2> Wejście</th><th> Wyjście</th></tr><tr><th> a</th><th> b</th><th></th></tr><tr><td> 0</td><td> 0</td><td> 0</td></tr><tr><td> 1</td><td> 0</td><td> 1</td></tr><tr><td> 0</td><td> 1</td><td> 1</td></tr><tr><td> 1</td><td> 1</td><td> 0</td></tr></table>"
+    },
+    "INV16": {
+      "name": "inverter 16b",
+      "help": "16-bitowa bramka <b>inv</b> . Odwraca każdy bit.<table class='truth'><tr><th> Wejście</th><th> Wyjście</th></tr><tr><td> 0</td><td> 1</td></tr><tr><td> 1</td><td> 0</td></tr></table>"
+    },
+    "AND16": {
+      "name": "iloczyn 16b",
+      "help": "16 bitów <b>i</b> bramka. Wykonuje parami <b>i</b> dla wszystkich bitów w parze 16-bitowych wartości.<table class='truth'><tr><th colspan=2> Wejście</th><th> Wyjście</th></tr><tr><th> A</th><th> B</th><th></th></tr><tr><td> 0</td><td> 0</td><td> 0</td></tr><tr><td> 1</td><td> 0</td><td> 0</td></tr><tr><td> 0</td><td> 1</td><td> 0</td></tr><tr><td> 1</td><td> 1</td><td> 1</td></tr></table>"
+    },
+    "HALFADD": {
+      "name": "półsumator",
+      "help": "Półsumator. Dodaje dwie liczby jednobitowe.<table class='truth'><tr><th colspan=2> Wejście</th><th colspan=2> Wyjście</th></tr><tr><th> a</th><th> b</th><th> h</th><th> ja</th></tr><tr><td> 0</td><td> 0</td><td> 0</td><td> 0</td></tr><tr><td> 1</td><td> 0</td><td> 0</td><td> 1</td></tr><tr><td> 0</td><td> 1</td><td> 0</td><td> 1</td></tr><tr><td> 1</td><td> 1</td><td> 1</td><td> 0</td></tr></table>"
+    },
+    "ADDC": {
+      "name": "sumator",
+      "help": "Pełny sumator. Dodaje razem trzy liczby jednobitowe.<table class='truth'><tr><th colspan=3> Wejście</th><th colspan=2> Wyjście</th></tr><tr><th> a</th><th> b</th><th> c</th><th> h</th><th> ja</th></tr><tr><td> 0</td><td> 0</td><td> 0</td><td> 0</td><td> 0</td></tr><tr><td> 0</td><td> 0</td><td> 1</td><td> 0</td><td> 1</td></tr><tr><td> 0</td><td> 1</td><td> 0</td><td> 0</td><td> 1</td></tr><tr><td> 0</td><td> 1</td><td> 1</td><td> 1</td><td> 0</td></tr><tr><td> 1</td><td> 0</td><td> 0</td><td> 0</td><td> 1</td></tr><tr><td> 1</td><td> 0</td><td> 1</td><td> 1</td><td> 0</td></tr><tr><td> 1</td><td> 1</td><td> 0</td><td> 1</td><td> 0</td></tr><tr><td> 1</td><td> 1</td><td> 1</td><td> 1</td><td> 1</td></tr></table>"
+    },
+    "ADD16": {
+      "name": "sumator 16b",
+      "help": "<b>Dodawanie 16-bitowe</b> Dodaje razem dwie liczby 16-bitowe. Przepełnienie jest ignorowane, więc wyniki „przesuwają się” na 0, jeśli przekracza 65536."
+    },
+    "ADDC16": {
+      "name": "sumator 16+1",
+      "help": "<b>Dodawanie 16-bitowe</b> Dodaje dwie 16-bitowe liczby i 1-bitowe przeniesienie. <b>S</b> to suma 16-bitowa. Wyjście <b>c</b> jest przeniesieniem, jeśli suma jest większa niż 16 bitów."
+    },
+    "INC16": {
+      "name": "inkrementator 16",
+      "help": "<b>Przyrost</b><p> Dodaj <b>1</b> do 16-bitowej wartości.<p>"
+    },
+    "SUB16": {
+      "name": "odejmowarka 16",
+      "help": "Odejmowanie 16 <b>-bitowe</b> Odejmuje liczbę 16-bitową od innej.<p> Wyniki negatywne są reprezentowane przez dopełnienie do dwóch."
+    },
+    "ZERO": {
+      "name": "0",
+      "help": "Stała <b>0</b> ."
+    },
+    "ZERO16": {
+      "name": "0",
+      "help": "Stała <b>0</b> ."
+    },
+    "ISZERO": {
+      "name": "iszero",
+      "help": "Na wyjściu 1, jeśli 16-bitowy stan wejścia to 0"
+    },
+    "ISNEG": {
+      "name": "isneg",
+      "help": "Na wyjściu 1, jeśli 16-bitowa liczba na wejściu jest ujemna.<p> Liczby ujemne są reprezentowane w uzupełnieniu do dwójki, co oznacza, że mają bit 15 równy 1."
+    },
+    "SPLIT16": {
+      "name": "splitter",
+      "help": "<b>Splitter</b> Dzieli 16-bitową magistralę na 16 indywidualnych połączeń."
+    },
+    "BUNDLE16": {
+      "name": "bundler",
+      "help": "<b>Bundler</b> Zbiera 16 indywidualnych połączeń w 16-bitową magistralę."
+    },
+    "SELECT": {
+      "name": "multiplekser",
+      "help": "Wybrany składnik <b>wybiera</b> jeden z dwóch bitów wejściowych na wyjście.<table class='truth'><tr><th> Wejście</th><th> Wyjście</th></tr><tr><th> s</th><th></th></tr><tr><td> 0</td><td> d0</td></tr><tr><td> 1</td><td> d1</td></tr></table>"
+    },
+    "DECODER": {
+      "name": "dekoder",
+      "help": "<b>Dekoder</b> Ustawia jeden z kanałów wyjściowych na 1 na podstawie bitu kontrolnego.<table class='truth'><tr><th> Wejście</th><th colspan=2> Wyjście</th></tr><tr><th></th><th> c1</th><th> c0</th></tr><tr><td> 0</td><td> 0</td><td> 1</td></tr><tr><td> 1</td><td> 1</td><td> 0</td></tr></table>"
+    },
+    "SELECT16": {
+      "name": "multiplekser 16b",
+      "help": "<b>selektor</b> . Wybiera jeden z dwóch 16-bitowych kanałów wejściowych na podstawie bitu adresu.<table class='truth'><tr><th> Wejście</th><th> Wyjście</th></tr><tr><th> s</th><th></th></tr><tr><td> 0</td><td> D0</td></tr><tr><td> 1</td><td> D1</td></tr></table>"
+    },
+    "DEMUX": {
+      "name": "demultiplekser",
+      "help": "<b>Przełącznik</b> przesyła bit danych przez jeden z dwóch kanałów wyjściowych.<table class='truth'><tr><th colspan=2> Wejście</th><th colspan=2> Wyjście</th></tr><tr><th> s</th><th> d</th><th> c1</th><th> c0</th></tr><tr><td> 0</td><td> 0</td><td> 0</td><td> 0</td></tr><tr><td> 0</td><td> 1</td><td> 0</td><td> 1</td></tr><tr><td> 1</td><td> 0</td><td> 0</td><td> 0</td></tr><tr><td> 1</td><td> 1</td><td> 1</td><td> 0</td></tr></table>"
+    },
+    "ALU_PRESET": {
+      "name": "jednoargumentowe ALU",
+      "help": "<b>Jednoargumentowa jednostka ALU</b> modyfikuje wartość wejściową <b>X</b> w oparciu o flagi: Jeśli <b>z</b> (zero) wynosi 1, to 0 jest używane zamiast wejścia Jeśli <b>n</b> (negacja) wynosi 1, wejście jest odwrócone<table class='truth'><tr><th colspan=2> Wejście</th><th> Wyjście</th></tr><tr><th> z</th><th> n</th><th></th></tr><tr><td> 0</td><td> 0</td><td> X</td></tr><tr><td> 1</td><td> 0</td><td> 0</td></tr><tr><td> 0</td><td> 1</td><td> Odwróć X</td></tr><tr><td> 1</td><td> 1</td><td> Odwróć 0</td></tr></table>"
+    },
+    "ALU": {
+      "name": "ALU",
+      "help": "Jednostka arytmetyczno-logiczna. Wykonuje operacje arytmetyczne lub logiczne na dwóch wejściach <b>X</b> i <b>Y</b> . 6-bitowe <b>flagi</b> operacji (kod operacji) określają, którą operację."
+    },
+    "CONDITION": {
+      "name": "analizator warunków",
+      "help": "Wyjście 1, jeśli wejście <b>X</b> spełnia warunki określone przez flagi <b>cd</b> ."
+    },
+    "LATCH": {
+      "name": "zatrzask",
+      "help": "<b>Zatrzask</b> Przechowuje i trochę emituje.<p> Gdy <b>st</b> (store) wynosi 1, bit <b>d</b> jest przechowywany i emitowany.<p> Gdy <b>st</b> wynosi 0, ostatni zapisany bit jest emitowany, a bieżąca wartość <b>d</b> jest ignorowana."
+    },
+    "DFF": {
+      "name": "przerzutnik",
+      "help": "<b>Przerzutnik danych</b> Przechowuje i emituje bit, synchronizowany sygnałem zegarowym.<table class='truth'><tr><th colspan=3> Wejście</th><th> Efekt uboczny</th><th> Wyjście</th></tr><tr><th> st</th><th> d</th><th> cl</th><th></th><th></th></tr><tr><td> 0</td><td> -</td><td> 0</td><td> -</td><td> <b>na zewnątrz</b></td></tr><tr><td> 1</td><td> 0</td><td> 0</td><td> ustawione <b>na</b> 0</td><td> <b>na zewnątrz</b></td></tr><tr><td> 1</td><td> 1</td><td> 0</td><td> ustawione <b>na</b> 1</td><td> <b>na zewnątrz</b></td></tr><tr><td> -</td><td> -</td><td> 1</td><td> wyruszyć <b>w</b> <b>podróż</b></td><td> <b>na zewnątrz</b></td></tr></table><p> W tabeli <b>wchodzące</b> i <b>wychodzące</b> są przechowywane bity. Gdy <b>cl</b> wynosi 0, <b>in</b> można zmienić. Kiedy <b>cl</b> zmienia się na 1, <b>out</b> jest ustawiane na wartość <b>in</b> ."
+    },
+    "DFF16": {
+      "name": "rejestr 16b",
+      "help": "<b>16-bitowy rejestr DFF.</b> Przechowuje i emituje 16-bitowe słowo zsynchronizowane sygnałem zegarowym.<table class='truth'><tr><th colspan=3> Wejście</th><th> Efekt uboczny</th><th> Wyjście</th></tr><tr><th> st</th><th> X</th><th> cl</th><th></th><th></th></tr><tr><td> 0</td><td> -</td><td> 0</td><td> -</td><td> <b>na zewnątrz</b></td></tr><tr><td> 1</td><td> -</td><td> 0</td><td> ustawione <b>na</b> X</td><td> <b>na zewnątrz</b></td></tr><tr><td> -</td><td> -</td><td> 1</td><td> wyruszyć <b>w</b> <b>podróż</b></td><td> <b>na zewnątrz</b></td></tr></table>"
+    },
+    "RAM2": {
+      "name": "RAM2",
+      "help": "<b>RAM 2</b> Przechowuje dwie 16-bitowe wartości.<p> <b>ad</b> : dwubitowy adres do odczytu (i do zapisu, jeśli <b>st</b> wynosi 1)<p> <b>X</b> : dane do przechowywania (jeśli <b>st</b> wynosi 1)<p> <b>st</b> : jeśli 1, zapisz <b>D</b> pod adresem <b>ad</b><p> <b>cl</b> : sygnał zegarowy.<p> Dane wyjściowe to 16-bitowa wartość przechowywana pod adresem podanym przez <b>ad</b>"
+    },
+    "COUNTER": {
+      "name": "licznik",
+      "help": "<b>Licznik 16-bitowy.</b> Przechowuje i emituje 16-bitowe słowo.<p> Licznik zmienia się, gdy <b>cl</b> (sygnał zegara) zmienia się na 1.<table class='truth'><tr><th> st</th><th></th></tr><tr><td> 0</td><td> licznik jest ustawiony na aktualną liczbę + 1.</td></tr><tr><td> 1</td><td> licznik jest ustawiony na <b>X</b></td></tr></table>"
+    },
+    "RAM": {
+      "name": "RAM",
+      "help": "<b>RAM</b> Przechowuje 64K 16-bitowych wartości.<p> <b>Ad</b> : adres do przeczytania (i napisania, jeśli <b>st</b> wynosi 1)<p> <b>X</b> : dane do przechowywania (jeśli <b>st</b> wynosi 1)<p> <b>st</b> : jeśli 1, zapisz <b>D</b> pod adresem <b>Ad</b><p> <b>cl</b> : sygnał zegarowy.<p> Dane wyjściowe to 16-bitowa wartość przechowywana pod adresem podanym przez Ad"
+    },
+    "STATE": {
+      "name": "pamięć",
+      "help": "Połączona pamięć procesora.<p> Składa się z dwóch rejestrów <b>A</b> i <b>D</b> oraz jednostki pamięci RAM.<p> <b>*Wyjście A</b> to komórka RAM pod adresem podanym przez <b>A</b>"
+    },
+    "ROM": {
+      "name": "ROM",
+      "help": "<b>Pamięć programu (pamięć</b> tylko do odczytu) Przechowuje do 64K 16-bitowych słów. Można czytać, ale nie można ich modyfikować.<p> <b>Reklama</b> : adres do przeczytania<p> Wyjście to 16-bitowa wartość przechowywana pod adresem podanym przez A"
+    },
+    "BUTTON": {
+      "name": "przycisk",
+      "help": "Przycisk sprzętowy. Emituje 1 po naciśnięciu, w przeciwnym razie 0."
+    },
+    "LAMP": {
+      "name": "lampa",
+      "help": "Lampa sprzętowa. Włącza się o 1 <b>na</b> . Wyłącza się o 1 on <b>off</b> . (Dotyczy tylko zmiany z 0 na 1.)"
+    },
+    "ROBOT": {
+      "name": "robot",
+      "help": "<b>Kontroler robota</b> Integracja z maszynami sprzętowymi i czujnikami robota.<p> Każde wejście inicjuje akcję, gdy jest ustawione na 1.<p> <b>lo</b> : włącz lampę<br> <b>lf</b> : Wyłącz lampę<br> <b>mv</b> : Zacznij iść do przodu<br> <b>stp</b> : Przestań iść do przodu<br> <b>tl</b> : Rozpocznij skręt o 90 stopni w lewo<br> <b>tr</b> : Rozpocznij skręt o 90 stopni w prawo<br> <b>zp</b> : Promień śmierci ognia</p><p> Sygnały ruchu/skręcania są ignorowane, jeśli robot już się porusza lub skręca<p><p> Wyjścia:</p><p> <b>mv</b> wynosi 1, jeśli robot porusza się do przodu<br> <b>tn</b> wynosi 1, jeśli robot się obraca<br> <b>ob</b> wynosi 1, jeśli zostanie wykryta przeszkoda<br> <b>lf</b> wynosi 1, jeśli zostanie wykryte życie<p>"
+    },
+    "CLOCK": {
+      "name": "zegar",
+      "help": "komponent <b>zegara</b> , który generuje sygnał zegarowy używany do synchronizacji zmian stanu w obwodzie. Przycisk <b>Pulse</b> generuje pojedynczy cykl na kliknięcie."
+    },
+    "SHL": {
+      "name": "trochę",
+      "help": "<b>Przesunięcie bitowe w lewo</b> Przesuwa wszystkie bity o jedną pozycję w lewo. Skrajny lewy bit (bit 15) wejścia jest odrzucany. Najbardziej prawy bit (bit 0) na wyjściu jest ustawiony na 0."
+    },
+    "SWITCH": {
+      "name": "przełącznik",
+      "help": "Przełącznik elektryczny. Łączy <b>i</b> z <b>o</b> , gdy <b>off</b> wynosi 0. Rozłącza się, gdy <b>off</b> wynosi 1."
+    },
+    "WIRE_JUNCTION": {
+      "name": "",
+      "help": "Połączenie przewodów. Łączy wiele przewodów."
+    },
+    "PMOS": {
+      "name": "pmos",
+      "help": "Tranzystor PMOS. Łączy <b>i</b> z <b>o</b> , gdy <b>wyłączone</b> jest 0, rozłącza się, gdy <b>wyłączone</b> jest 1"
+    },
+    "NMOS": {
+      "name": "nmos",
+      "help": "Tranzystor NMOS. Łączy <b>i</b> z <b>o</b> , gdy <b>włączone</b> wynosi 1, rozłącza się, gdy <b>włączone</b> jest 0"
+    },
+    "TRINARY_LOGIC_WIRE_JUNCTION": {
+      "name": "",
+      "help": "Połączenie przewodów. Łączy wiele wyjść."
+    },
+    "ADD_SIGNED_MAGNITUDE": {
+      "help": "Dodaj dwie liczby w formacie ze znakiem wielkości. <b>sgn</b> to znak: 0 jest dodatnie, 1 jest ujemne. <b>m</b> to wielkość."
+    }
+  },
+  "texts": {
+    "diagram_help": "<p>Wszystkie komponenty są określone poprzez jakie dane wejściowe powinny prowadzić do jakich danych wyjściowych. To, jak dokładnie zbudujesz komponent, zależy od Ciebie, o ile dane wejściowe/wyjściowe są zgodne ze specyfikacją. Gra nie dba o to, czy znalazłeś najprostszy czy najwydajniejszy projekt. Dba tylko o to, czy działa poprawnie.<p> Aby zobaczyć specyfikację komponentu, kliknij jego ikonę 🛈.<h3> Instrukcja obsługi</h3><p> Cel poziomu jest zawsze opisany w ramce po lewej stronie płótna. Tekst pod płótnem (to, co teraz czytasz) zawiera dodatkowe informacje i wskazówki.<p> Budujesz obwód, przeciągając komponenty z przybornika po lewej stronie kanwy i łącząc je, przeciągając groty strzałek ze złączy wyjściowych do złączy wejściowych.<p> Możesz ręcznie przetestować obwód, przełączając pole wejściowe na dole (małe pole wyboru).<p> Jeśli uważasz, że prawidłowo zaprojektowałeś komponent, kliknij „Sprawdź rozwiązanie”. System sprawdza, czy zaprojektowany obwód odpowiada specyfikacji. Jeśli tak, możesz przejść do następnego poziomu.<div class=subject><h3> Około 0 i 1</h3><p> Sygnały wejściowe i wyjściowe mogą mieć wartość 0 lub 1. Nie ma innej opcji ani pośredniego uziemienia. Odzwierciedla to podstawową zasadę systemów cyfrowych: rozróżniają one tylko dwa różne stany. W obwodzie elektrycznym odpowiada to wysokiemu i niskiemu prądowi. Ale nie obchodzi nas, jak to działa na poziomie fizycznym, po prostu traktujemy je jako stany logiczne.</div><div class=subject><h3> Skąd pochodzi bramka NAND?</h3><p> W tej grze używamy bramy <b>nand</b> jako najbardziej podstawowego elementu konstrukcyjnego. Sama bramka nand jest zbudowana z tranzystorów. Tranzystor to w zasadzie przełącznik elektryczny. Bramka nand zbudowana jest z dwóch lub czterech tranzystorów, w zależności od rodzaju zastosowanych tranzystorów.</div>",
+    "translation_credits": "Jan 'xtrqt' Rzepecki"
+  },
+  "ui": {
+    "language": "Polski",
+    "solve_level": "Sprawdź",
+    "level_help": "Pomoc poziomu",
+    "donate": "Podaruj",
+    "about": "O autorze",
+    "custom_components": "Komponenty niestandardowe",
+    "btn_level_complete": "Sprawdź rozwiązanie",
+    "btn_reset_state": "Zresetuj stan",
+    "btn_clear_levels": "Wyczyść wszystkie poziomy",
+    "confirm_clear_levels": "Czy chcesz wyczyścić wszystkie poziomy i zacząć od początku? Wszystkie postępy zostaną utracone.",
+    "btn_skip_level": "Pomiń poziom",
+    "btn_next_level": "Następny poziom",
+    "btn_ok": "OK",
+    "btn_close": "Zamknij",
+    "btn_clear_canvas": "Wyczyść ekran",
+    "level_error_header": "Poziom jest nieprawidłowy.",
+    "level_error": "Obecny schemat nie jest zgodny ze specyfikacją.",
+    "stay": "Pozostań na tym poziomie",
+    "about_translation": "Głownie Google Translate",
+    "level_complete": "Poziom pomyślnie ukończony!",
+    "custom_components_start": "Komponenty niestandardowe można zaprojektować w dowolny sposób. Mogą być używane jako części w rozwiązaniach poziomów lub możesz ich używać do zabawy i eksperymentowania.",
+    "click_to_reveal": "(Kliknij, aby odsłonić)"
+  }
+}

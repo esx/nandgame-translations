@@ -1,0 +1,408 @@
+{
+    "missions": {
+        "RELAY_NAND": {
+            "title": "与非门",
+            "splash": "<p>欢迎来到<b>与非门游戏</b>!</p>\n <p>你将从基本元件开始打造一台电脑。\n  <div style='background:blue;'><p>本游戏包括一系列关卡。\n 每一关里，你的任务是根据要求做出一个元件。\n 做出的元件，则会用作下一关的基础。\n\n<p>玩这个游戏不需要懂计算机体系和软件，也不要求你具备四则运算之外的数学知识。\n (不过你得有一些耐心——有些题目还是要思考一下才能解开的！)\n\n </div> <p>你的第一个任务是做出一个<b>与非门</b>元件。\n <p>左侧的图表，是任务的具体要求。\n 点击 \"关卡帮助\" 来获得更多信息。",
+            "specification": "<p>你的第一个任务，是使用继电器做出一个<b>与非门</b>元件。<p>与非门元件，只有当两个输入<b>a</b>和<b>b</b>均为1时，才输出0：</p> <table class='data'><colgroup class='input'><col><col></colgroup><colgroup class='output'><col></colgroup><tr><th class='input' colspan='2'>输入</th><th class='output' colspan='1'>输出</th></tr><tr><th>a</th><th>b</th><th></th></tr><tr><td>0</td><td>0</td><td>1</td></tr><tr><td>0</td><td>1</td><td>1</td></tr><tr><td>1</td><td>0</td><td>1</td></tr><tr><td>1</td><td>1</td><td>0</td></tr></table> <p><b>1</b>代表电路中有电流，<b>0</b>代表没有电流。<p>输入<b>V</b>是一个恒定电流，就是一直保持为1的意思。<p>有2种不同类型的继电器：一种在平常（默认）状态下是导通的，需要电流来把它关断。另一种平常状态是关断的，需要电流来开通。",
+            "elaboration": "<p><b>与非门</b>元件是一个基本的逻辑元件。使用与非门，你能做出所有的计算机逻辑元件。这也是为什么要从做出一个与非门开始！</p> <p><b>继电器</b>是一种可由电流（称为控制电流）控制的开关。控制电流连接到一个磁铁，用于把连接端子在开通和关断位置之间移动。<p>最早的电子计算机是用继电器做出来的，而今天的计算机由晶体管组成。晶体管就像继电器一样，可以作为开关使用；但是它没有任何活动零件。所以晶体管可以能做得又小又便宜。“与非门游戏”采用了继电器，因为比较容易展示它的工作原理。但是逻辑上，继电器和晶体管是类似的。做出与非门之后，便可以忽略它究竟是用继电器还是晶体管做成的了。",
+            "spoilers": [ "可以分两步走。用一个继电器，实现当a和b都是1时才输出1；第二个继电器反转第一个继电器的结果，这样1就变成了0、0就变成了1。" ],
+            "hints": {
+                "drag": "<b>第一步:</b> 将元件从工具箱拖动到蓝色区域.",
+                "tap": "<b>第二步:</b> 点击箭头、选中输出端子；然后点击另一个元件的输入端子来把它们连起来。",
+                "truth": "题目对元件的要求。<p>对于每个输入，你做的元件需要产生对应的正确输出。",
+                "toggle": "点击框框来翻转输入信号，看它是如何在电路中起作用。",
+                "verify": "完成题目后，点击这里检查答案。"
+            }
+        },
+        "INV": {
+            "title": "非门",
+            "splash": "<p>下一关是用刚刚作出的<b>与非门</b>元件来做一个<b>非门</b>。\n <p> <p>从本关开始，我们无需考虑底层开关的实现方式（是用继电器还是晶体管）。另外虽然实际上的与非门需要连接一个电源才能用，这里我们不需要在图中展示它。所有的元件，默认都会连接一个电源。这样我们就可以集中于输入、输出的逻辑原理。</p>",
+            "specification": "<p>你的任务是做一个非门(<b>inv</b>)。\n\n <p>非门(<b>inv</b>)有一个输入和一个输出\n <p>输出和输入总是相反的：0得到1，1得到0。\n\n <p>元件的要求通常会被列在一个表中，就像这样:",
+            "hints": {
+                "0": "<b>与非门</b>已经加入你的工具箱。"
+            }
+        },
+        "AND": {
+            "title": "与门",
+            "splash": "<p>下一关是做一个<b>与门</b>；只能用<b>与非门</b>和<b>非门</b>。\n (你不一定非要2种门都用)",
+            "specification": "<p><b>与门</b>只有在2个输入都是1的情况下，输出才是1：",
+            "spoilers": [ "\"与非门\"实际上就是\"非-与门\"的意思" ]
+        },
+        "OR": {
+            "title": "或门",
+            "specification": "<p>只要有一个输入为1，<b>或门</b>就会输出1："
+        },
+        "XOR": {
+            "title": "异或门",
+            "specification": "<p>当两个输入不一样时，<b>异或门</b>输出1：",
+            "elaboration": "异或门可以理解为<i>相异的或</i>。意味着<i>a或b都可以，但两个一起不行</i>."
+        },
+        "HALFADD": {
+            "title": "半加器",
+            "splash": "<p>恭喜！你已经做完了基础逻辑门。\n <p>接下来是算数元件，因为处理器要能做加减法。\n\n <p>第一个任务是将两个1位数字加载一起。结果是一个2位数字\n <p>你需要理解二进制才能解这道题。",
+            "specification": "<p><b>加法</b>元件将两个比特相加。结果是个2位的值。\n <p><b>h</b>输出是高位，<b>l</b>输出是低位（就像在2位10进制数中，十位是高位，个位是低位）。",
+            "elaboration": "<div class=subject>\n\n <h3>二进制</h3>\n\n <p>计算机使用<b>二进制</b>来进行计算。\n\n <p>在二进制里，所有数字都只用0和1来表示。\n 这和我们平常使用0-9来表示数的方法不同。\n\n <p>举例:\n\n <table class=data>\n <tr><th>二进制</th><th>十进制</th></tr>\n <tr><td>00</td><td>0</td></tr>\n <tr><td>01</td><td>1</td></tr>\n <tr><td>10</td><td>2</td></tr>\n <tr><td>11</td><td>3</td></tr>\n </table>\n\n\n 想要了解二进制，可以思考我们是如何使用十进制的。只用10个不同的数字，我们就可以通过把数字放在不同的位置上，表示任意大的数。\n 在一个三位数里，从右边数第一位是个位、第二位是十位、第三位是百位。\n 所以说273就是2 x 100 + 7 x 10 + 3 x 1。数字的位置就是10的乘方。\n 因此，我我们日常使用的数字表达方法又被称为<i>十进制</i>。\n\n<p>在二进制中，只有两种数字: 0或1。因此二进制中的数字的位置，就是2的乘方：1位、2位、4位、8位等等。\n 因此，二进制中的101就是十进制中的5 (1 x 4 + 0 x 2 + 1 x 1)。\n二级制非常适合数字电路，因为数字电路的2个状态正好可以对应0和1。\n\n[TODO: Link to binary tutorial]\n\n </div>",
+            "spoilers": [ "分别观察两列输出，看看你能否发现某种规律。" ]
+        },
+        "FULLADD": {
+            "title": "全加器",
+            "splash": "<p>你已经完成了一个能加两个比特的加法器。\n <p>但是要想加更多位数，我们需要将前一位的\"进位\"考虑进去。\n <p>本关的任务是做一个<i>三位</i>加法器，将a、b和c加在一起。这里c是上一位的进位。",
+            "specification": "<p>一个<b>加法</b>元件，有3个输入：<b>a</b>, <b>b</b>, 和<b>c</b>。\n <p>输出是一个2位的数值。<b>h</b>是高位、<b>l</b>是低位。",
+            "elaboration": "为了能对任意大的数做加法，我们先将第一对数字加起来，然后计算进位（如果有的话），再加下一对数字。\n "
+        },
+        "ADD2": {
+            "title": "多位加法器",
+            "splash": "<p>现在我们做一个加法器，它能对两个2位数（以及1位进位）做加法。\n <p>我们可以通过叠加2位加法器来加更大的数字。",
+            "specification": "<p>做一个能加两个2位数和1位进位的加法器。\n <h3>输入</h3>\n <p><b>a1 a0</b>是一个2位数字。\n <p><b>b1 b0</b>是一个2位数字。\n <p><b>c</b>（进位输入）是一个1位数字。\n <h3>输出</h3>\n <p>输入数字的和，是一个3位数字：<b>c s1 s0</b>其中<b>c</b>是最高位。\n\n <h3>示例</h3>\n\n <table class='data'>\n <colgroup class=input><col><col></colgroup>\n <colgroup class=input><col><col></colgroup>\n <colgroup class=input><col></colgroup>\n <colgroup class=output><col><col><col></colgroup>\n <colgroup class=output><col></colgroup>\n <tr><th colspan=5>输入</th><th colspan=3>输出</th></tr>\n <tr><th>a1</th><th>a0</th><th>b1</th><th>b0</th><th>c</th><th>c</th><th>s1</th><th>s0</th></tr>\n <tr><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td>2+2+1=5</td></tr>\n </table>    ",
+            "debriefing": "<p>可加2位二进制数的元件可以通过叠加实现任意多位数的加法。\n\n <p>既然我们要做的是一个16位处理器，我们将它叠加到能加16位数，加入你的工具箱，并叫它<b>add 16</b>."
+        },
+        "INC": {
+            "title": "自增",
+            "splash": "<p>现在你可以开始操纵16位数了。\n\n <p>你的任务是做一个<b>自增</b>元件，能在一个16位数的基础上加一。\n\n <p>既然现在操纵的是一个16位数，我们在图表中\n简化了表达方法：用一个端口来代替16条端口。这样的16位端口会带着一个小小的\"<b>16</b>\"标记。\n ",
+            "specification": "<p>让一个16位数增加<b>1</b>。<p>\n <p>结果大于16位时，忽略进位",
+            "hints": {
+                "0": "一次提供16位输出。同时会显示输出的十六进制形式和带符号的十进制形式。",
+                "1": "一次提供16位输入。你可以输入十六进制或者十进制数作为数值。"
+            },
+            "elaboration": "<p><b>自增</b>的意思是把数字增加1。它有很多用途，比如做计数器。\n\n\n <h3>16位</h3>\n\n <p>处理器通常一次处理多位数据。\n 这次你做的处理器是一个<b>十六位处理器</b> 也就是说，它一次可以处理16位的数值。\n\n <p>现代处理器（比如电脑和手机里的处理器）通常是32位或64位的。嵌入式处理器，比如微波炉里的处理器，可能是8位或者4位的。\n 这里我们选择了16位处理器，是因为它对于学习来说够用了。\n\n <h3>字和字节</h3>\n <p>一组16比特位叫做一个<b>字</b>。字的长度取决于处理器。\n 一个<b>字节</b>的长度与机器无关，永远都是8位。\n\n <div>\n <h3>总线</h3>\n <p>一组被当作一个单位一起处理的连接关系叫做<b>总线</b>。每个输入和输出都是一个16位的总线。\n 16位加法器上的<b>A</b>和<b>B</b>输入都是16位总线。\n </div>\n\n <div>\n <h3>十六进制</h3>\n <p>二进制数大了以后，不管读还是写都对我们人类构成了挑战。因此我们使用<b>十六进制</b>，来让数字更短并且更易读写。\n 十六进制是一个十六进一的计数法，这里字母A, B, C, D, E, F用来表示数字十到十五。\n <p>十六进制(英文缩写<i>hex</i>)对于处理二进制数据十分方便，因为一位十六进制数字永远对应4个比特。一个16位的字是4个16进制数字。十进制数字并不与二进制数字直接对应，\n 因此十进制对于处理二进制数据就不是很方便。\n\n <p>举例：\n <table class='data numbers'>\n <tr><th>hex</th><th>无符号十进制</th><th>二进制</th></tr>\n <tr><td>1</td><td>1</td><td>0000000000000001</td></tr>\n <tr><td>F</td><td>15</td><td>0000000000001111</td></tr>\n <tr><td>10</td><td>16</td><td>0000000000010000</td></tr>\n <tr><td>2A</td><td>42</td><td>0000000000101010</td></tr>\n <tr><td>0100</td><td>256</td><td>0000000100000000</td></tr>\n <tr><td>FFFF</td><td>65535</td><td>1111111111111111</td></tr>\n </table>\n\n <p>为了方便，16位输入和输出端口会在二进制数字的旁边显示十六进制数值。你也可以输入16进制数。\n 它们会自动转换为二进制数。\n\n <p> <a href=\"https://www.mathsisfun.com/hexadecimals.html\">十六进制教程</a>. [如果你有比这更好的教程，请告诉我]\n\n </div>",
+            "spoilers": [
+                "<p>提示：输入端口不一定非要连在某个地方；没有连接的输入端口永远是0。",
+                "没有连接到任何输入端口的<b>非</b>门总是输出1",
+                "<b>加法</b>上的进位输入<b>c</b>接受一个比特，可以是二进制的0或1。"
+            ]
+        },
+        "SUB": {
+            "title": "减法",
+            "splash": "<p>现在，做一个<b>减法</b>元件，从一个16位数减掉另一个。",
+            "specification": "<p>输出一个16位数，为A减B。\n <p>如果结果小于0，表示为65536加结果。\n <p>例如:\n\n <table class='data numbers'>\n <tr><th>结果</th><th>16位二进制</th><th>无符号十进制</th></tr>\n <tr><td>1</td><td>0000000000000001</td><td>1</td></tr>\n <tr><td>0</td><td>0000000000000000</td><td>0</td></tr>\n <tr><td>-1</td><td>1111111111111111</td><td>65535</td></tr>\n <tr><td>-2</td><td>1111111111111110</td><td>65534</td></tr>\n <tr><td>-3</td><td>1111111111111101</td><td>65533</td></tr>\n </table>\n\n <p>(这就是二的补码)",
+            "elaboration": "<div class=subject>\n\n <h3>二的补码</h3>\n <p>“二的补码”是 一种用二进制表示有符号数字（正数或负数）的标准方式。\n <p>第15位被用作符号位。\n 如果第15位是0，数字是正数；如果是1，则为负数。负数等同于65536减去数字的绝对值。\n 例如，-127对应于无符号数65409，因为65536 - 127 = 65409\n\n <p>一些例子：\n <table class='data numbers'>\n <tr><th>带符号十进制</th><th>无符号十进制</th><th>16位二进制</th><th>十六进制</th></tr>\n <tr><td>32767</td><td>32767</td><td>0111111111111111</td><td>7FFF</td></tr>\n <tr><td>1</td><td>1</td><td>0000000000000001</td><td>0001</td></tr>\n <tr><td>0</td><td>0</td><td>0000000000000000</td><td>0000</td></tr>\n <tr><td>-1</td><td>65535</td><td>1111111111111111</td><td>FFFF</td></tr>\n <tr><td>-2</td><td>65534</td><td>1111111111111110</td><td>FFFE</td></tr>\n <tr><td>-3</td><td>65533</td><td>1111111111111101</td><td>FFFD</td></tr>\n <tr><td>-32768</td><td>32768</td><td>1000000000000000</td><td>8000</td></tr>\n </table>\n\n <p>\n </div>",
+            "spoilers": [ "考虑按位取反(<b>16位取反</b>)是如何影响一个数字的", "一个数字的取反相当于65535减去这个数字。一个负数相当于65535减去数字的大小。", "A - B = A + INV(B) + 1" ],
+            "debriefing": "恭喜，你已经完成了基本四则运算的元件。\n <p>现代处理器支持更复杂的运算，比如乘法、除法和浮点数运算，\n 但在这个游戏里，我们尽可能保持简单，做一个最简的、能工作的处理器。"
+        },
+        "ISZERO": {
+            "title": "为0",
+            "splash": "<p>现在，做一个元件来判断一个数字是否为0。首先我们实现在一个4位数上的判断。",
+            "specification": "<p>如果输入的所有位都是0，输出1。",
+            "debriefing": "同样的方法很容易延申到16位数。因此我们也做出了检查16位数是否为0的元件。"
+        },
+        "SIGN": {
+            "title": "小于0",
+            "splash": "<p>现在做一个元件，判断一个16位数是否为负数。",
+            "specification": "<p>如果作为输入的16位数是负数，输出1。\n\n <p>要求：\n <table class='data'>\n <colgroup class=input><col></colgroup>\n <colgroup class=output><col></colgroup>\n <tr><th>输入</th><th>输出</th></tr>\n <tr><td>输入 >= 0</td><td>0</td></tr>\n <tr><td>输入 < 0</td><td>1</td></tr>\n </table>\n\n 如果第15位是1，那么这个数就小于0。\n<h3>位的序号</h3>\n我们将数字的每一位从右往左标上序号。最右边是第0位。因此，在一个16位的字中，最左边一位是第15位。",
+            "elaboration": "为了完成这个元件，我们将16位数解读为一个有符号整数，最左边的一位是符号。\n\n <p>工具箱里提供了一个<b>分位器</b>。分位器能将一个16位总线分解成单个端口。\n 通过分位器，你可以处理16位输入的每一位。分位器没有任何内在逻辑。\n\n <div class=subject>\n <h3>有符号和无符号数</h3>\n\n <p>同样的一个16位数可以被解读成有符号或者无符号整数。这里有一些0附近的数作为例子：\n\n <table class='data numbers'>\n <tr><th>16位二进制</th><th>十六进制</th><th>无符号十进制</th><th>带符号十进制</th></tr>\n <tr><td>0000000000000001</td><td>0001</td><td>1</td><td>1</td></tr>\n <tr><td>0000000000000000</td><td>0000</td><td>0</td><td>0</td></tr>\n <tr><td>1111111111111111</td><td>FFFF</td><td>65535</td><td>-1</td></tr>\n <tr><td>1111111111111110</td><td>FFFE</td><td>65534</td><td>-2</td></tr>\n <tr><td>1111111111111101</td><td>FFFD</td><td>65533</td><td>-3</td></tr>\n </table>\n\n <p>为了方便，无论我们将数字解读成有符号还是无符号的，加法和减法操作都会一视同仁。\n 这意味着，处理器并不需要知道它们的区别。\n\n [TODO: 找到二的补码的教程链接]\n </div>",
+            "spoilers": [ "你不需要任何逻辑元件，分位器就够了。" ]
+        },
+        "MULTIPLEXER": {
+            "title": "选择器",
+            "specification": "<p><b>选择器</b>元件选择两个输入中的一个作为输出。\n\n <p><b>s</b>为选择比特，决定选择哪个输入：\n 为0时，选择<b>d0</b>；为1时，选择<b>d1</b>。",
+            "elaboration": "<p>这个元件也叫做<b>多路调制器</b>."
+        },
+        "DEMUX": {
+            "title": "开关",
+            "splash": "接下来，做一个<b>开关</b>，将数据比特送到2个输出中的一个。",
+            "specification": "<p><b>开关</b>元件将数据比特送到2个输出之一。\n\n <p><b>s</b>(选择位)决定<b>d</b>(数据位)是从<b>c1</b>还是<b>c0</b>输出。"
+        },
+        "SR_LATCH": {
+            "splash": "<p>迄今为止，我们做的元件都没有记忆功能。\n\n <p>你的任务是做一个<b>锁存器</b>，一个能存储一个比特的元件。"
+        },
+        "LATCH": {
+            "title": "锁存器",
+            "specification": "<p><b>锁存器</b>能存储并输出一个比特。\n <p>当<b>st</b>(存储位)为1，<b>d</b>上的数值将被存储并输出出去。\n <p>当<b>st</b>为0，<b>d</b>的数值将被忽略，依然输出之前存储的数值。\n\n <p>为了在输入/输出表格里描述这个元件，我们引入一个变量，<b>out</b>；它可以被赋予并保存一个数值：</p>\n\n <table class='data'>\n <colgroup class=input><col><col></colgroup>\n <colgroup class=input><col></colgroup>\n <colgroup class=output><col></colgroup>\n <tr><th colspan=2>输入</th><th>效果</th><th>输出</th></tr>\n <tr><th>st</th><th>d</th><th></th><th></th></tr>\n <tr><td>1</td><td>0</td><td>将<b>out</b>设置为0</td><td><b>out</b></td></tr>\n <tr><td>1</td><td>1</td><td>将<b>out</b>设置为1</td><td><b>out</b></td></tr>\n <tr><td>0</td><td>1</td><td>-</td><td><b>out</b></td></tr>\n <tr><td>0</td><td>0</td><td>-</td><td><b>out</b></td></tr>\n </table>",
+            "spoilers": [ "你需要用到一个循环连接——一个元件的输入将会是同一个元件的输出。" ]
+        },
+        "DFF": {
+            "title": "触发器",
+            "splash": "<p>用锁存器可以做一个状态随时间改变的电路。\n <p>但现在有一个问题：因为电路里的状态并不同步改变，\n 电路中的状态就会以不可预知的方式传播，让计算的结果不可预测（这种情况被叫做“竞争条件”）。\n\n <p>解决的方法是使用<b>时钟信号</b>：它能按照节奏自动改变输出的比特位，并输送到所有连接的状态元件中。\n\n <p>如果元件只在时钟信号改变的时候改变，那么电路中所有的元件就会同时发生变化，\n 我们也就解决了同步问题。\n\n <p>本关中你将制作一个<b>触发器</b>元件，在时钟信号为0时存储一个比特，\n 在时钟信号变为1的时候开始输出这个存储的比特。",
+            "specification": "<p><b>触发器</b> (DFF) 元件存储并输出一个比特，但只有当时钟信号从0变为1时才改变输出的比特。\n\n <p>当<b>st</b>(存储位)是1而<b>cl</b>(时钟信号)是0时，存储<b>d</b>上的值。\n 但之前的数值依然会被输出。\n <p>当时钟信号改变为1，触发器开始输出新值。\n \n <p>当<b>st</b>为0，<b>d</b>上的值没有任何效果。\n <p>当<b>cl</b>为1，<b>st</b>和<b>d</b>的值没有任何效果。\n\n <p>为了在表格里描述这个元件，我们需要2个变量：<b>in</b>和<b>out</b>:\n\n<table class=\"data\">\n <colgroup class=input><col><col><col></colgroup>\n <colgroup class=input><col></colgroup>\n <colgroup class=output><col></colgroup>\n<tr><th colspan=3>输入</th><th>效果</th><th>输出</th></tr>\n<tr><th>st</th><th>d</th><th>cl</th><th></th><th></th></tr>\n<tr><td>1</td><td>0</td><td>0</td><td>将<b>in</b>设置为0</td><td><b>out</b></td></tr>\n<tr><td>1</td><td>1</td><td>0</td><td>将<b>in</b>设置为1</td><td><b>out</b></td></tr>\n<tr><td>0</td><td>-</td><td>0</td><td>-</td><td><b>out</b></td></tr>\n<tr><td>-</td><td>-</td><td>1</td><td>将<b>out</b>设置为<b>in</b></td><td><b>out</b></td></tr>\n</table>",
+            "elaboration": "<p>时钟信号就像一个节拍器，让所有的元件一致地改变。\n\n<p>时钟信号从0到1再从1到0的过程，称作<b>时钟周期</b>。 \n\n<p>在真正的处理器中，通常用某种震荡的晶体触发时钟信号。在本游戏中，我们手工输入时钟信号，\n以方便手工调试电路。\n\n<p>时钟变化的快慢叫做<b>时钟频率</b>。时钟频率越高，计算机工作得越快。\n\n<p>注：虽然名字叫“时钟”，“时钟”自己不会计时。它只提供了一个固定的节奏。\n但是通过把它和计数器结合，我们也可以做一个能计时的元件。  \n ",
+            "spoilers": [ "你需要2个锁存器。", "在cl=0时写一个锁存器；当cl=1时用第一个锁存器写第二个锁存器。" ]
+        },
+        "DFF2": {
+            "title": "寄存器",
+            "splash": "<p>现在已经能存储1位数据了。\n <p>本关中你需要组合2个触发器来一次性储存和读取<b>两位</b>数据。\n <p>(最终了我们想要一次储存和读取16位数据。但如果你知道怎样存储2位数据，存储更多的数据就不是什么问题了。)",
+            "specification": "<p><b>2位触发器</b>和触发器的工作方式一样，\n 唯一的区别是可以储存和输送2位(<b>d1</b>和<b>d0</b>)而不是一位数据。",
+            "elaboration": "2位存储的设计可以很容易地重复。\n 我们通过重复它获得16位存储单元，我们把它叫做<b>寄存器</b>.",
+            "debriefing": "我们可以通过重复2位存储单元的设计轻松得到8位、16位和32位存储单元。\n <p>既然我们正在做一个16位计算机，我们就在工具箱里添加一个16位存储单元(叫做<b>寄存器</b>)。"
+        },
+        "COUNTER": {
+            "title": "计数器",
+            "splash": "<p>下一关是做一个计数器，每个时钟周期数字自增。\n <p>计数器是处理器的重要元件，因为它能驱动指令的执行。",
+            "specification": "<p><b>计数器</b>在每个时钟周期数字会自增。\n\n <p>计数器的数字在<b>cl</b>(时钟信号)改变时增加1。\n <p>当<b>st</b>为0时，之前的计数器数值会增加1。\n <p>当<b>st</b>(存储)是1时，输入的数值<b>X</b>会被当做新的计数器的值。\n\n<p>为了在表格里描述它，我们需要2个变量，<b>in</b>和<b>out</b>，每个变量保存一个16位的数字：\n\n<table class=\"data\">\n <colgroup class=input><col><col></colgroup>\n <colgroup class=input><col></colgroup>\n <colgroup class=output><col></colgroup>\n<tr><th colspan=2>输入</th><th>效果</th><th>输出</th></tr>\n<tr><th>st</th><th>cl</th><th></th><th></th></tr>\n<tr><td>0</td><td>0</td><td class=text>将 <b>in</b> 设为 <b>out</b> + 1</td><td><b>out</b></td></tr>\n<tr><td>1</td><td>0</td><td class=text>将<b>in</b>设为<b>X</b></td><td><b>out</b></td></tr>\n<tr><td>-</td><td>1</td><td class=text>将<b>out</b>设为<b>in</b></td><td><b>out</b></td></tr>\n</table>",
+            "spoilers": [ "你需要一个寄存器元件。" ]
+        },
+        "RAM": {
+            "title": "RAM",
+            "splash": "<p>现在你能在寄存器里存储16位的字。\n <p>我们可以通过堆叠寄存器来获得更多的存储。\n <p>但既然处理器一次只能处理一个字，那我们就需要一种方法\n在一大片存储区域中选择和修改个别的字。\n <p>我们用地址来做到这点。\n <p>我们给存储器中的每一个字赋予一个数字，\n 这样我们就能通过这个数字读取或者写入字。\n\n <p>本关中，你需要使用2个存储器，然后用1个比特位作为地址在存取它们。",
+            "specification": "<p>使用2个16位寄存器来设计一个存储单元；它能用一个比特来定位寻址和写入。\n <h3>输入</h3>\n <p><b>ad</b> (地址)指示我们正在存取哪个存储单元。\n <p><b>st</b> (存储)指示我们是否要写入那个单元。\n <ul>\n <li>当它为1时，数值 <b>X</b> 被写入存储单元\n <li>为0时，<b>X</b> 被忽略。\n </ul>\n <p><b>X</b> (数据)是一个16位数值。\n <p><b>cl</b> (时钟信号)同步状态变化。 <b>X</b> 在 <b>cl</b>=0 时被储存在存储器中，但是只有当 <b>cl</b> 变为1时才会发送出去。\n <h3>输出</h3>\n <p>当前被存储在由地址 <b>ad</b> 所指定的存储单元中的数值。",
+            "elaboration": "<p>一个只有2个字的存储器不大。但有了这个，我们就可以重复这个设计来得到4、8、16个字等存储单元。\n\n <h3>寻址</h3>\n <p>我们给存储器中的数据从0开始编号。所存储的字的编号叫做它的<b>地址</b>。\n 当读取或者写入RAM单元时，我们使用地址来访问它。\n\n <p>有两个单元，意味着我们只有2个地址；这时使用一个比特就足以从中选择。因为我们的架构是16位的，我们就最多能支持16位的地址，\n 这意味着我可以寻址65,536个字的数据。\n\n <p>这种存储器叫做RAM（随机存储器，也被称作内存），因为我们可以存取更新任何存储空间，只要我们知道它的地址。\n\n <div class=subject>\n <h3>字节和KB</h3>\n <p>通常存储容量（来自RAM或其他存储器）的大小是用<b>字节</b>衡量的；一个字节是8个比特。\n 因为我们的计算机是16位架构，我们可以一次存储一个16位的字，每个字2个字节。\n 这样，我们就能有65536个存储单元（因为65536是16位所能表达的最大数字）。所以用字节在表述，\n 我们有2倍大小的字节数，131,072字节。这个大小通常写作128KB (KB = 千字节).\n\n <p>131,072是如何成为128K的？这是因为计算字节的时候，1K不仅仅像其他计量单位那样代表1000，\n 而是1024。而128*1024 = 131,072.\n\n </div>",
+            "debriefing": "<p>通过重复这个2位RAM的设计，我们可以做出更大的RAM单元。"
+        },
+        "ALU_PRESET": {
+            "title": "一元ALU",
+            "splash": "<p>到现在为止，我们做出的元件还都只能完成单独的功能。\n <p>一个ALU (算数逻辑单元，又称运算器) 是一个核心元件，它能完成一系列不同的\n逻辑和算数预算，比如加法、减法和取反。\n <p>一组控制比特决定它做什么样的操作。\n <p>制作一个ALU分为2步。\n 第一步是做一个 \"一元ALU\" ，它能反转一个输入或者将它替换成0。\n ",
+            "specification": "<p><b>一元ALU</b> 修改一个单个输入 <b>X</b>。它通过两个标志位来选择采取何种操作。\n\n<p>如果 <b>z</b> (归零) 是 1，那么0会代替输入作为输出。\n<p>如果 <b>n</b> (取反) is 1, 那么输入将会被取反\n<p>这里要注意顺序：如果两个都是1，输出将会是0的取反。\n\n<p>要求:\n <table class='data'>\n <colgroup class=input><col><col></colgroup>\n <colgroup class=output><col></colgroup>\n <tr><th colspan=2>输入</th><th>输出</th></tr>\n <tr><th>z</th><th>n</th><th></th><th></th></tr>\n <tr><td>0</td><td>0</td><td>X 不变</td></tr>\n <tr><td>1</td><td>0</td><td>0</td></tr>\n <tr><td>0</td><td>1</td><td>取反 X</td></tr>\n <tr><td>1</td><td>1</td><td>取反 0</td></tr>\n </table>",
+            "elaboration": "<h3>设计逻辑运算单元(ALU)</h3>\n\n<p>ALU是一种能完成不同的算数和逻辑运算的元件。 \n它有两个输入，X和Y，以及一系列选项（标志位）来决定对输入进行什么类型的操作。\n\n<p>它能处理的操作包括加法(X+Y)，减法(X-Y或Y-X)，逻辑与(X与Y), 逻辑或(X或Y)。它也可以对单个输入进行操作（忽略另一个输入）；比如，自增(X+1)，自减(X-1)，反转X和取X的负数(0-X)。\n\n<p>听起来我们需要一个非常复杂的元件来实现全部这些操作。实际上，我们只需要组合两种操作和两种可能发生的修正动作就可以实现它。\n\n<p>例如，在\"减法\"关卡中我们了解到，只要反转一个输入和输出，就可以将加法改装成减法。\n另外，我们在\"自增\"关卡中看到，自增(把X加1)可以通过将Y替换成0，然后反转和相减来实现。\n<p>通过反转和归零两个输入之一，有时需要反转和/或归零输出，我们可以完成一系列算数运算。\n\n<p>因此，我们通过2步来实现ALU。首先，我们实现一个一元元件来完成输入反转和归零的工作。 (\"一元\"的意思是它只在一个数字上做操作)\n然后在下一个阶段，我们结合输入／输出修饰器以及二元运算来完成ALU。"
+        },
+        "ALU": {
+            "title": "ALU",
+            "splash": "<p>现在我们能把ALU本身搭建出来了。\n <p>它有2个16位的输入数值，以及6个独立的选项来表示对输入进行何种操作。\n ",
+            "specification": "<p>ALU (算数／逻辑单元) 对两个输入<b>X</b>和<b>Y</b>做一种或多种操作。\n\n <p>六个标志位被用来选择进行何种操作。\n 当设置为1时，每个标志位能触发一种操作：\n\n <ul>\n <li><b>zx</b>: 用0作为X</li>\n <li><b>nx</b>: 反转X</li>\n <li><b>zy</b>: 用0作为Y</li>\n <li><b>ny</b>: 反转Y</li>\n <li><b>f</b> 选择一种操作:\n <p>0: 输出是X与Y\n <br>1: 输出是X + Y\n </li>\n <li><b>no</b>: 反转输出</li>\n </ul>\n\n <p>这些标识位可以共同使用。请注意上面描述的顺序。\n <p>比如，如果<b>zx</b>和<b>nx</b>都是1，\n 那么X将是0反转之后的数值。",
+            "elaboration": "<p>通过联合使用6种标志位，就能够进行广泛的算数运算。\n <p>一些例子：\n <table class='data numbers'>\n <tr><th>zx</th><th>nx</th><th>zy</th><th>ny</th><th>f</th><th>no</th><th>结果</th></tr>\n <tr><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>X + Y</td></tr>\n <tr><td>0</td><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td><td>X - 1</td></tr>\n <tr><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>X and Y</td></tr>\n <tr><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>X - Y</td></tr>\n <tr><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>\n <tr><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>\n </table>\n\n <p>也许每个标志位的组合为什么能产生相应的效果没有那么显而易见，但你可以自己试一试，看看它是怎样工作的。\n\n\n <p>(此ALU是基于课程<a href=\"https://www.nand2tetris.org/\">从与非门到俄罗斯方块</a>。此处使用已得到许可。)"
+        },
+        "OPCODES1": {
+            "title": "操作码",
+            "specification": "<p>为ALU选择满足操作码(opcode)表达式的标志位组合。</p><p>大多数表达式是不言自明的。</p><p><b>~</b>指按位取反：反转所有输入的比特位</p><p><b>&</b>指按位<b>与</b><p><b>|</b>指按位<b>或</b><p>注：某些行可能有多个正确答案。"
+        },
+        "CONDITION": {
+            "title": "条件",
+            "specification": "<p>用三个标志位来表示数字<b>X</b>的三种不同条件:\n\n <table class='data text'>\n <tr><th>标志</th><th>条件</th>\n <tr><td><b>lt</b></td><td>小于0</td>\n <tr><td><b>eq</b></td><td>等于0</td>\n <tr><td><b>gt</b></td><td>大于0</td>\n </table>\n\n <p>如果满足条件的标志位为1，那么请输出1。\n\n\n <p>标志位能够以以下方式组合:\n\n <table class='data'>\n <tr><th colspan=3>标志位</th> <th>输出1的条件</th></tr>\n <tr><th>lt</th><th>eq</th><th>gt</th><th></th></tr>\n <tr><td>0</td><td>0</td><td>0</td> <td>从不</td></tr>\n <tr><td>0</td><td>0</td><td>1</td> <td>X &gt; 0</td></tr>\n <tr><td>0</td><td>1</td><td>0</td> <td>X = 0</td></tr>\n <tr><td>0</td><td>1</td><td>1</td> <td>X ≥ 0</td></tr>\n <tr><td>1</td><td>0</td><td>0</td> <td>X &lt; 0</td></tr>\n <tr><td>1</td><td>0</td><td>1</td> <td>X ≠ 0</td></tr>\n <tr><td>1</td><td>1</td><td>0</td> <td>X ≤ 0</td></tr>\n <tr><td>1</td><td>1</td><td>1</td> <td>总是</td></tr>\n </table>",
+            "spoilers": [ "这三个条件中同时只能有一个成立。", "对于前两种条件，已经有现成的元件了。", "\"X ≤ 0\" 意味着X或者小于零，<i>或者</i>等于0。", "在<b>lt</b>=1 且 X&lt;0 或 <b>eq</b>=1 且 X=0 或 <b>gt</b>=1 且 X&gt;0的时候输出1。" ]
+        },
+        "CPU_STATE": {
+            "title": "复合存储器",
+            "splash": "处理器可以用两种类型的存储器：寄存器和RAM。\n <p>处理器可以直接存取寄存器，用来存放计算的中间结果。\n RAM能存储大量数据，但我们一次只能存取一个地址的数据。\n <p>在这个处理器中，我们有2个寄存器，叫做<b>A</b>和<b>D</b>，以及一个RAM。\n <p>本关中，请将两个寄存器和RAM合并在一起。\n ",
+            "specification": "<p>处理器的存储包括2个16位寄存器叫做A和D，以及1个RAM单元。\n\n<p><b>a</b>, <b>d</b>, <b>*a</b>标志位和<b>X</b>输入被用来更新一或多个寄存器。\n\n<table class='data text'>\n <tr><th>Flag</th><th></th></tr>\n <tr><td>a</td><td>将X写入A寄存器</td></tr>\n <tr><td>d</td><td>将X写入D寄存器</td></tr>\n <tr><td>*a</td><td>将X写入RAM中由A寄存器所指定地址的位置</td></tr>\n </table>\n\n<p>标志位可以联合使用，这样<b>X</b>将被同时写入多个寄存器中。如果所有的标志位都是0，那么X就被忽略掉。\n\n<p><b>cl</b>是时钟信号。\n\n <table class='data text'>\n <tr><th>输出</th><th></th></tr>\n <tr><td>A</td><td>A寄存器的当前数值</td></tr>\n <tr><td>D</td><td>D寄存器的当前数值</td></tr>\n <tr><td>*A</td><td>在RAM中A寄存器所指定地址位置的数值</td></tr>\n </table>",
+            "elaboration": "<p>我们的处理器有2个级别的存储：寄存器和RAM。\n <p>就目前位置，RAM的容量是最大的。但因为我们需要保存读取RAM所用但地址，而且需要存储中间数值，两个寄存器就派上用场了：寄存器A（用于地址）以及D（用于数据）。\n\n <p>现实世界中的处理器可以有几十个寄存器甚至更多；这里我们的处理器只有两个，因为这大概是可以做一个正常运作的处理器的最小数目。\n\n <h3>标志位(Flag)</h3>\n <p><i>标志位</i>指的是一个单独的二进制位，用来控制一个选项。不同的标志位可以独立开关。 \n 例如，在这个元件里，标志位<b>a</b>, <b>d</b>, 和<b>*a</b>可以用形成任意设置组合，包括三个全选上或者一个都不选。"
+        },
+        "IO": {
+            "title": "输入和输出",
+            "splash": "<p>一个有用的计算机需要能和外部世界互通。\n <p>这种互通可以通过硬件设备，比如屏幕、键盘、触摸传感器、网络接口等等。\n\n <p>本关中，我们把计算机和一个简单的机器人硬件 - 它有电机和传感器 - 整合在一起。</p>",
+            "specification": "<p>整合<b>机器人</b>硬件设备，让它能像内存地址一样被写入和读取。\n\n <p>你需要在<b>st</b>(储存)是1以及<b>cl</b>(时钟信号)是1时，将输入信号发送到机器人硬件。\n\n <p>机器人的输出信号需要可以随时作为输出读取。</b>\n\n <p>从输入<b>X</b>到设备控制信号的比特对应关系为：\n <table class=data>\n <tr><th>比特</th><th>控制信号</th></tr>\n <tr><td>15</td><td>lo</td></tr>\n <tr><td>14</td><td>lf</td></tr>\n <tr><td>13</td><td>mv</td></tr>\n <tr><td>12</td><td>stp</td></tr>\n <tr><td>11</td><td>tl</td></tr>\n <tr><td>10</td><td>tr</td></tr>\n <tr><td>09</td><td>zp</td></tr>\n </table>\n\n <p>从设备传感器到输出比特位的对应关系为：\n <table class=data>\n <tr><th>比特</th><th>传感器输出</th></tr>\n <tr><td>3</td><td>mv</td></tr>\n <tr><td>2</td><td>tn</td></tr>\n <tr><td>1</td><td>ob</td></tr>\n <tr><td>0</td><td>lf</td></tr>\n </table>",
+            "elaboration": "<p><b>内存映射</b>输入／输出的意思是，连接的外部设备被直接插入常规RAM单元旁边的地址空间中。\n\n <p>这样，处理器就可以用读写内存一模一样的方式来写入到外部设备、以及从外部设备中读取输入。\n\n <p>"
+        },
+        "IO2": {
+            "title": "输入和输出",
+            "splash": "<p>一个有用的计算机需要能和外部世界互通。\n <p>这种互通可以通过硬件设备，比如屏幕、键盘、触摸传感器、网络接口等等。\n\n <p>本关中，我们整合两个简单的硬件设备：一个灯泡和一个实体按钮。</p>",
+            "specification": "<p>连接一个灯泡和按钮，让计算机能像访问内存地址一样来访问它们。\n\n <p><b>输出到设备</b></p> <p>灯泡是由<b>X</b>上的比特0或1来控制的: <p>当比特1是1，灯泡将会得到<b>on</b>的信号。当比特0为1，灯泡将会得到<b>off</b>上的信号。 <p>当\n <b>st</b> (储存)为1且<b>cl</b> (时钟信号)为1时，信号将被传递到硬件。\n\n <p><b>从设备输入</b></p> <p>按钮状态需要展示在元件输出的第15位。 <p>当按钮被按下时，第15位需要是1。当没有被按下时，它需要是0。<p>输入信号要求立即可被读取</b>\n\n",
+            "elaboration": "<p><b>内存映射</b>输入输出，意思是外部设备连接\n会插入到内存地址中，在常规内存单元的旁边。\n\n <p>这意味着处理器可以写入输出设备、读取输入设备，就像它写入和读取内存一样。\n\n <p>"
+        },
+        "PROGRAM1": {
+            "title": "机器码",
+            "specification": "<p>编写一个有4个指令的程序：</p><p>0) 将寄存器D设置为0 <br>1) 将寄存器A设置为2 <br>2) 向D寄存器加1 <br>3) 无条件跳转</p> <p>执行程序的结果，是在每一个循环中，<b>D</b>的值将增加1。</p><p>你可以通过设置每个指令的对应比特位来完成这个程序。</p><p>点击计算机上的<b>拨动时钟</b>来执行一条指令。</p>"
+        },
+        "ASSEMBLER1": {
+            "title": "汇编器",
+            "splash": "<p>看得出来，用二进制机器码写程序很难受！ <p>为了方便，我们使用<b>汇编语言</b>，用文本来表达指令。汇编器里的每一行文本对应一条机器码指令。之后便由<b>汇编器程序</b>将文本翻译为机器语言。</p> <p>本关中，你将使用汇编语言来编写程序。</p>",
+            "specification": "<p>使用汇编语言来编写一个程序，让连接到计算机的绿色灯泡闪烁至少3下。</p> <p>灯泡被映射到内存7FFF上的比特1和0。<table class='data text'> <tr><th>比特</th><th>设为1，用于：</th></tr>  <tr><td>0</td><td>点亮灯泡</td></tr><tr><td>1</td><td>熄灭灯泡</td></tr></table> <p>外部设备，只会在一个比特由0设置为1时收到影响。"
+        },
+        "ESCAPE": {
+            "title": "迷宫逃脱",
+            "specification": "<p>计算机被困在火星上的一个迷宫中了。编写一个程序让它逃离迷宫。 <p>计算机上连接了轮子和一个前方障碍检测器。对轮子和检测器的输入、输出被映射到内存7FFF上：</p> <p><b>向外部设备输出信号:</b></p>  <table class='data text'> <tr><th>比特</th><th>设为1，用于:</th></tr>  <tr><td>2</td><td>前进(1步) </td></tr><tr><td>3</td><td>左转(90度) </td></tr><tr><td>4</td><td>右转(90度) </td></tr></table>  <p>当一个比特从0时变为1时，将开始移动或转弯，但动作需要花费一些时间来完成。<p><b>来自外部设备的输入：</b></p> <table class='data text'> <tr><th>比特</th><th>为1时</th></tr> <tr><td>8</td><td>前方检测到障碍</td></tr> <tr><td>9</td><td>设备在转弯</td></tr> <tr><td>10</td><td>设备在前进</td></tr></table>"
+        }
+    },
+    "components": {
+        "RELAY-ON": {
+            "help": "继电器。平常状态下将<b>in</b>链接到输出，但如果在<b>c</b>上游电流，继电器就会关断。"
+        },
+        "RELAY-OFF": {
+            "help": "继电器。当<b>c</b>上有电流时，它把<b>in</b>连接到输出。"
+        },
+        "NAND": {
+            "name": "与非门",
+            "help": "<b>与非</b>门。当且只当两个输入均为1时，输出才是0。\n <table class='truth'>\n <tr><th colspan=2>输入</th><th>输出</th></tr>\n <tr><th>a</th><th>b</th><th></th></tr>\n <tr><td>0</td><td>0</td><td>1</td></tr>\n <tr><td>1</td><td>0</td><td>1</td></tr>\n <tr><td>0</td><td>1</td><td>1</td></tr>\n <tr><td>1</td><td>1</td><td>0</td></tr>\n </table>\n "
+        },
+        "INV": {
+            "name": "非门",
+            "help": "<b>非</b>门，反转输入。\n <table class='truth'>\n <tr><th>输入</th><th>输出</th></tr>\n <tr><td>0</td><td>1</td></tr>\n <tr><td>1</td><td>0</td></tr>\n </table>"
+        },
+        "AND": {
+            "name": "与门",
+            "help": "<b>与</b>门。只有在两个输入均为1的时候，输出才是1\n <table class='truth'>\n <tr><th colspan=2>输入</th><th>输出</th></tr>\n <tr><th>a</th><th>b</th><th></th></tr>\n <tr><td>0</td><td>0</td><td>0</td></tr>\n <tr><td>1</td><td>0</td><td>0</td></tr>\n <tr><td>0</td><td>1</td><td>0</td></tr>\n <tr><td>1</td><td>1</td><td>1</td></tr>\n </table>"
+        },
+        "OR": {
+            "name": "或门",
+            "help": "<b>或</b>门。在至少有一个输入为1的时候，输出1\n <table class='truth'>\n <tr><th colspan=2>输入</th><th>输出</th></tr>\n <tr><th>a</th><th>b</th><th></th></tr>\n <tr><td>0</td><td>0</td><td>0</td></tr>\n <tr><td>1</td><td>0</td><td>1</td></tr>\n <tr><td>0</td><td>1</td><td>1</td></tr>\n <tr><td>1</td><td>1</td><td>1</td></tr>\n </table>"
+        },
+        "XOR": {
+            "name": "异或门",
+            "help": "<b>异或</b>门。当两个输入不同的时候输出1。\n <table class='truth'>\n <tr><th colspan=2>输入</th><th>输出</th></tr>\n <tr><th>a</th><th>b</th><th></th></tr>\n <tr><td>0</td><td>0</td><td>0</td></tr>\n <tr><td>1</td><td>0</td><td>1</td></tr>\n <tr><td>0</td><td>1</td><td>1</td></tr>\n <tr><td>1</td><td>1</td><td>0</td></tr>\n </table>"
+        },
+        "INV16": {
+            "name": "16位取反",
+            "help": "16位<b>非</b>门，反转每个比特位。\n <table class='truth'>\n <tr><th>输入</th><th>输出</th></tr>\n <tr><td>0</td><td>1</td></tr>\n <tr><td>1</td><td>0</td></tr>\n </table>"
+        },
+        "AND16": {
+            "name": "16位与",
+            "help": "十六位<b>与</b>门。对于16位数值中的每对比特做按位<b>与</b>操作。\n <table class='truth'>\n <tr><th colspan=2>输入</th><th>输出</th></tr>\n <tr><th>A</th><th>B</th><th></th></tr>\n <tr><td>0</td><td>0</td><td>0</td></tr>\n <tr><td>1</td><td>0</td><td>0</td></tr>\n <tr><td>0</td><td>1</td><td>0</td></tr>\n <tr><td>1</td><td>1</td><td>1</td></tr>\n </table>"
+        },
+        "HALFADD": {
+            "name": "加法",
+            "help": "半加器。相加2个一位数字。\n\n <table class='truth'>\n <tr><th colspan=2>输入</th><th colspan=2>输出</th></tr>\n <tr><th>a</th><th>b</th><th>h</th><th>l</th></tr>\n <tr><td>0</td><td>0</td><td>0</td><td>0</td></tr>\n <tr><td>1</td><td>0</td><td>0</td><td>1</td></tr>\n <tr><td>0</td><td>1</td><td>0</td><td>1</td></tr>\n <tr><td>1</td><td>1</td><td>1</td><td>0</td></tr>\n </table>"
+        },
+        "ADDC": {
+            "name": "加法",
+            "help": "全加器。相加3个1位数字。\n <table class='truth'>\n <tr><th colspan=3>输入</th><th colspan=2>输出</th></tr>\n <tr><th>a</th><th>b</th><th>c</th><th>h</th><th>l</th></tr>\n <tr><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>\n <tr><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td></tr>\n <tr><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>\n <tr><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td></tr>\n <tr><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>\n <tr><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td></tr>\n <tr><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td></tr>\n <tr><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>\n </table>\n"
+        },
+        "ADD16": {
+            "name": "16位加",
+            "help": "<b>16位加法</b>，将2个16位数字相加在一起。\n 忽略溢出。所以结果如果超过65536，会“滚回”从0开始。\n"
+        },
+        "ADDC16": {
+            "name": "16位加",
+            "help": "<b>16位加法</b> 将2个16位数字和1位进位相加到一起。\n <b>S</b>是16位的和。输出<b>c</b>是当和超过16位时产生的进位。\n "
+        },
+        "INC16": {
+            "name": "16位自增",
+            "help": "<b>自增</b>\n <p>向<b>1</b>一个16位的数值增加1。<p>\n "
+        },
+        "SUB16": {
+            "name": "16位减",
+            "help": "<b>16位减法</b>从另一个数字中减去一个16位的数字。\n <p>负数结果用二的补码表示。"
+        },
+        "ZERO": {
+            "name": "0",
+            "help": "常数<b>0</b>."
+        },
+        "ZERO16": {
+            "name": "0",
+            "help": "常数<b>0</b>."
+        },
+        "ISZERO": {
+            "name": "为0",
+            "help": "当16位输入为0时，输出1"
+        },
+        "ISNEG": {
+            "name": "为负",
+            "help": "当16位输入为负数时，输出1。\n <p>负数用二的补码表示。也就是说负数的第15位是1。\n"
+        },
+        "SPLIT16": {
+            "name": "分位器",
+            "help": "将一个16位的总线分割成16个独立的端口。"
+        },
+        "BUNDLE16": {
+            "name": "捆束器",
+            "help": "将16个独立的端口汇总成一个16位总线。"
+        },
+        "SELECT": {
+            "name": "选择器",
+            "help": "<b>选择器</b>元件从2个输入比特中选择一个作为输出。\n <table class='truth'>\n <tr><th>输入</th><th>输出</th></tr>\n <tr><th>s</th><th></th></tr>\n <tr><td>0</td><td>d0</td></tr>\n <tr><td>1</td><td>d1</td></tr>\n </table>"
+        },
+        "DECODER": {
+            "name": "解码器",
+            "help": "<b>解码器</b>根据1个控制比特，将输出通道之一设为1。\n <table class='truth'>\n <tr><th>输入</th><th colspan=2>输出</th></tr>\n <tr><th></th><th>c1</th><th>c0</th></tr>\n <tr><td>0</td><td>0</td><td>1</td></tr>\n <tr><td>1</td><td>1</td><td>0</td></tr>\n </table>"
+        },
+        "SELECT16": {
+            "name": "16位选择器",
+            "help": "<b>选择器</b>。根据1个地址比特从2个16位输入通道中选择一个。\n <table class='truth'>\n <tr><th>输入</th><th>输出</th></tr>\n <tr><th>s</th><th></th></tr>\n <tr><td>0</td><td>D0</td></tr>\n <tr><td>1</td><td>D1</td></tr>\n </table>"
+        },
+        "DEMUX": {
+            "name": "开关",
+            "help": "<b>开关</b>将一个数据比特从2个输出通道之一发送出去。\n <table class='truth'>\n <tr><th colspan=2>输入</th><th colspan=2>输出</th></tr>\n <tr><th>s</th><th>d</th><th>c1</th><th>c0</th></tr>\n <tr><td>0</td><td>0</td><td>0</td><td>0</td></tr>\n <tr><td>0</td><td>1</td><td>0</td><td>1</td></tr>\n <tr><td>1</td><td>0</td><td>0</td><td>0</td></tr>\n <tr><td>1</td><td>1</td><td>1</td><td>0</td></tr>\n </table>"
+        },
+        "ALU_PRESET": {
+            "name": "一元alu",
+            "help": "<b>一元ALU</b>将输入数值<b>X</b>根据下列标志位做出修改：\n\n 如果<b>z</b>(清零)为1，那么0会替代输入输出\n 如果<b>n</b>(取反)为1，那么输入将被取反\n\n <table class='truth'>\n <tr><th colspan=2>输入</th><th>输出</th></tr>\n <tr><th>z</th><th>n</th><th></th></tr>\n <tr><td>0</td><td>0</td><td>X</td></tr>\n <tr><td>1</td><td>0</td><td>0</td></tr>\n <tr><td>0</td><td>1</td><td>Invert X</td></tr>\n <tr><td>1</td><td>1</td><td>Invert 0</td></tr>\n </table>\n"
+        },
+        "ALU": {
+            "name": "alu",
+            "help": "逻辑运算单元。在两个输入<b>X</b>和<b>Y</b>.上进行算数或逻辑运算。\n 六位<b>op</b>(操作码)标志位选择进行何种运算。\n "
+        },
+        "CONDITION": {
+            "name": "条件",
+            "help": "当输入<b>X</b>满足<b>cd</b>标志位所指定的条件时，输出1。"
+        },
+        "LATCH": {
+            "name": "锁存器",
+            "help": "<b>锁存器</b>储存和发送1个比特。\n <p>当<b>st</b>(储存)是1时，<b>d</b>比特将被储存和发送。\n <p>当<b>st</b>是0时，上一个储存的比特将被发送；此时当前数值<b>d</b>将被忽略。\n "
+        },
+        "DFF": {
+            "name": "触发器",
+            "help": "<b>触发器</b>和一个时钟信号同步，储存和发送1个比特。\n\n <table class='truth'>\n <tr><th colspan=3>输入</th><th>额外效果</th><th>输出</th></tr>\n <tr><th>st</th><th>d</th><th>cl</th><th></th><th></th></tr>\n <tr><td>0</td><td>-</td><td>0</td><td>-</td><td><b>out</b></td></tr>\n <tr><td>1</td><td>0</td><td>0</td><td>将<b>in</b>设置为0</td><td><b>out</b></td></tr>\n <tr><td>1</td><td>1</td><td>0</td><td>将<b>in</b>设置为1</td><td><b>out</b></td></tr>\n <tr><td>-</td><td>-</td><td>1</td><td>将<b>out</b>设置为<b>in</b></td><td><b>out</b></td></tr>\n </table>\n <p>在这个表格中，<b>in</b>和<b>out</b>是存储的比特。当<b>cl</b>为0时，<b>in</b>可被改变。\n 当<b>cl</b>变为1时，<b>out</b>将被设置为<b>in</b>的值。\n "
+        },
+        "DFF16": {
+            "name": "寄存器",
+            "help": "<b>16位触发器寄存器</b>。和一个时钟信号同步，储存和发送一个16位的字。\n\n <table class='truth'>\n <tr><th colspan=3>输入</th><th>额外效果</th><th>输出</th></tr>\n <tr><th>st</th><th>X</th><th>cl</th><th></th><th></th></tr>\n <tr><td>0</td><td>-</td><td>0</td><td>-</td><td><b>out</b></td></tr>\n <tr><td>1</td><td>-</td><td>0</td><td>将<b>in</b>设置为X</td><td><b>out</b></td></tr>\n <tr><td>-</td><td>-</td><td>1</td><td>将<b>out</b>设置为<b>in</b></td><td><b>out</b></td></tr>\n </table>\n "
+        },
+        "RAM2": {
+            "name": "ram2",
+            "help": "<b>RAM 2</b>储存2个16位的数值。\n <p><b>ad</b>:所读取数据的2位地址(当<b>st</b>为1时则为写入)\n <p><b>X</b>:所存储(如果<b>st</b>为1)的数据\n <p><b>st</b>:如果是1，将<b>D</b>存储到地址<b>ad</b>所代表的位置\n <p><b>cl</b>:时钟信号。\n <p>输出一个在由地址<b>ad</b>指定位置上的16位数值\n "
+        },
+        "COUNTER": {
+            "name": "计数器",
+            "help": "<b>16位计数器。</b>储存和发送一个16位的字。\n <p>当<b>cl</b>(时钟信号)变为1的时候改变计数器的值。\n\n <table class='truth'>\n <tr><th>st</th><th></th></tr>\n <tr><td>0</td><td>计数器被设置为当前数字+1</td></tr>\n <tr><td>1</td><td>计数器被设置为<b>X</b></td></tr>\n </table>\n\n "
+        },
+        "RAM": {
+            "name": "ram",
+            "help": "<b>RAM</b>储存64K的16进制数值。\n <p><b>Ad</b>: 所读取数据的地址(当<b>st</b>是1的时候则写入)\n <p><b>X</b>: 所存储的数据(当<b>st</b>为1时)\n <p><b>st</b>: 如果为1，将<b>D</b>存储在地址<b>Ad</b>中\n <p><b>cl</b>: 时钟信号。\n <p>输出存储在地址Ad所指定的位置的16位数值。\n "
+        },
+        "STATE": {
+            "name": "存储器",
+            "help": "整合在一起的CPU存储器。\n <p>有2个寄存器<b>A</b>和<b>D</b>，以及一个RAM存储单元。\n <p>输出<b>*A</b>是由地址<b>A</b>所指定的RAM位置\n "
+        },
+        "ROM": {
+            "name": "rom",
+            "help": "<b>只读存储器</b>存储最多64K的16位字。只能读取不能修改。\n <p><b>Ad</b>: 所读取的地址\n <p>输出为地址A所指定的位置的16位数据\n <p>此ROM单元存储一个能生成斐波那契序列的机器指令程序。\n "
+        },
+        "BUTTON": {
+            "name": "按钮",
+            "help": "一个实体按钮。当按下时，输出1；否则输出0。"
+        },
+        "LAMP": {
+            "name": "灯",
+            "help": "一个实体灯泡。当<b>on</b>上收到1时点亮，<b>off</b>上是1时熄灭。(只有从0变为1时才生效)"
+        },
+        "ROBOT": {
+            "name": "机器人",
+            "help": "<b>机器人控制器</b>集成了一个机器人的运动机构和传感器。\n\n <p>当每个输入被设置为1时，会执行一种动作。\n <p><b>lo</b>: 开灯\n <br><b>lf</b>: 关灯\n <br><b>mv</b>: 向前运动\n <br><b>stp</b>: 停止运动 forward\n <br><b>tl</b>: 左转90度\n <br><b>tr</b>: 右转90度\n <br><b>zp</b>: 发射死亡光线</p>\n <p>当机器人已经在运动或转向的时候，会忽略运动和转向信号。<p>\n <p>输出:</p>\n <p><b>mv</b> 当机器人正在向前运动的时候输出1\n <br><b>tn</b> 当机器人正在转向的时候输出1\n <br><b>ob</b> 当前方由障碍的时候输出1\n <br><b>lf</b> 当检测到生命体的时候输出1<p>"
+        },
+        "CLOCK": {
+            "name": "时钟",
+            "help": "<b>时钟</b>元件产生用于同步电路状态变化的时钟信号。 每次点击<b>脉冲</b>按钮的时候，产生一个时钟周期的信号。"
+        },
+        "SHL": {
+            "name": "左移位",
+            "help": "<b>按位左移位</b>将所有的比特向左移动一位。输入中最左边的比特(第15位)将被丢弃。输出中最右边的比特(第0位)将被设置为0。"
+        },
+        "SWITCH": {
+            "name": "实体开关",
+            "help": "实体开关。当<b>off</b>为0时，将<b>i</b>连接到<b>o</b>。当<b>off</b>为1时，断开电路。"
+        },
+        "WIRE_JUNCTION": {
+            "name": "",
+            "help": "电路接合点，将多条导线连接到一起。"
+        },
+        "PMOS": {
+            "name": "pmos",
+            "help": "PMOS晶体管，当<b>off</b>为0时将<b>i</b>连接到<b>o</b>；当<b>off</b>为1时断开连接"
+        },
+        "NMOS": {
+            "name": "nmos",
+            "help": "NMOS晶体管，当<b>on</b>为1时将<b>i</b>连接到<b>o</b>；当<b>on</b>为0时断开连接"
+        },
+        "TRINARY_LOGIC_WIRE_JUNCTION": {
+            "name": "",
+            "help": "电路接合点，将多个输出连接到一起。"
+        },
+        "ADD_SIGNED_MAGNITUDE": {
+            "help": "使用符号-值表示法来相加2个数。<b>sgn</b>是符号：0为正数，1为负数。<b>m</b>是数值大小。"
+        }
+    },
+    "texts": {
+        "disgram_help": "<p>对所有元件的要求，都是什么样的输入应该产生什么样的输出。\n 具体怎样构造元件完全取决于你自己，只要输入输出符合要求，游戏不关心你是否使用的是最简单或者最高效的设计。它只关心最后得到的是正确的结果。  <p>查看一个元件的定义，点击 🛈 图标。\n\n <h3>用户指南</h3>\n\n <p>关卡的目标将会展现在画布左侧的区域中。\n 画布下方的文字(就是你现在读的这段)包含额外的信息和提示。\n\n <p>要完成电路，你可以从画布左侧的工具箱拖动元件，然后通过把输出端子的箭头拖动到输入端子上来连接它们。\n\n <p>你可以手工测试电路，方法是点击底部的输入选框(就是那个小小的复选框)。\n\n <p>当你觉得你已经正确完成了元件设计，点击\"完成关卡\"。\n 系统将会检查你是否按照对应的要求完成了电路，如果检查正确，你可以进入下一关。\n\n <div class=subject>\n <h3>关于0和1</h3>\n <p>输入和输出信号要么为0，要么为1。\n 此处没有其他选项或者中间地带。这反映了数字系统的基本原理：\n 单纯区分2种不同的状态。\n 在电子电路中，这对应着高电位和低电位。但是我们这里不关心物理层面上它如何工作，只把它当成2种逻辑状态。\n </div>\n\n <div class=subject>\n <h3>与非门从何而来？</h3>\n <p>本游戏中，我们把<b>与非门</b>作为最基本的构建单元。与非门自身可以由晶体管构成。一个晶体管可以被看作一个电子开关。\n 与非门可以用2个或4个晶体管做出，这取决于用的事什么类型的晶体管\n </div>",
+        "translation_credits": ""
+    },
+    "ui": {
+        "language": "中文",
+        "solve_level": "闯关",
+        "level_help": "关卡说明",
+        "donate": "捐助",
+        "about": "关于",
+        "custom_components": "自定义元件",
+        "btn_level_complete": "完成关卡",
+        "btn_reset_state": "复位",
+        "btn_clear_levels": "清除全部记录",
+        "confirm_clear_levels": "确认要清除全部记录并从头开始么？这将丢失所有游戏进度。",
+        "btn_skip_level": "跳过关卡",
+        "btn_next_level": "下一关",
+        "btn_ok": "确认",
+        "btn_close": "关闭",
+        "btn_clear_canvas": "清除画布",
+        "level_error_header": "答案不正确",
+        "level_error": "当前解法不满足关卡要求。",
+        "stay": "留在本关",
+        "about_translation": "如有翻译问题，请联系译者王宇 - bigeyex@gmail.com",
+        "level_complete": "成功过关！",
+        "custom_components_start": "你可以随意设计自定义元件。你可以在关卡中使用他们，或者仅仅出于实验或者好玩。",
+        "click_to_reveal": "(点击展示)"
+    }
+}
