@@ -4,38 +4,37 @@
             "title": "І-НЕ",
             "splash": "<p>Ласкаво просимо до <b>The Nand Game</b>!</p>\n <p>Тут ви складете комп'ютер, починаючи з базових компонентів..\n  <div><p>Гра складається з послідовності рівнів.\n На кожному рівні вашим завданням буде сконструювати компонент який поводиться згідно специфікації.\n Цей компонент можна буде використати як будівельний блок у наступних рівнях.\n\n<p>Гра не вимагає попередніх знань архітектури комп'ютера чи програмування, і не потребує знань математики окрім базової арифметики.\n (Проте вимагає трохи терпіння, бо деякі розв'язки потребуватимуть багато часу!)\n\n </div> <p>Ваше перше завдання - збудувати компонент <b>І-НЕ</b> (nand).\n <p>Зліва від діаграми описана специфікація завдання.\n Натисніть \"Довідка рівня\" щоб отримати додаткову корисну інформацію.",
             "specification": "<p>Вашим завданням є з'єднати входи до виходів за допомогою провідників і реле, таким чином що коли обидва входи <b>a</b> і <b>b</b> мають значення 1, на виході ми отримаємо значення 0.</p> \n\n<p><b>1</b> означає наявність електричного струму, <b>0</b> - відсутність струму. <p>Вхід <b>V</b> є джерелом постійного струму (завжди 1). <p>Точна специфікація: \n",
-            "elaboration": "<p>A <b>nand</b>-component (or nand-gate) is a fundamental logic component. Using just nand-gates, all computing logic can be built. This is why we start by building a nand-gate!</p> \n\n<p>A <b>relay</b> is an electrically controlled switch, where a control signal causes the switch to turn on and off. The control current is connected to an electromagnet which moves a contact between the on and off positions. \n\n<p>The first electronic computers were built from electric relays, but today computers are built from transistors. Transistors are switches like relays, but do not have any mechanical parts, which makes them (a lot) smaller, cheaper, and faster. Nandgame uses relays because it is easier to show how they work, but logically relays and transistors are similar. Once we have built the Nand-component, we can ignore whether it is built from relays or transistors.\n",
-            "spoilers": [ "Use the relays as two steps. In the first relay, output a 1 when both a and b are 1. The second relay should invert the output from the first, so 1 becomes 0 and 0 becomes 1." ],
-            "hints": {
-                "drag": "<b>Step 1:</b> Drag components from the toolbox to the blue area.",
-                "tap": "<b>Step 2:</b> Tap or drag the triangle to create a connection.",
-                "tap-end": "Tap a source connector on a component to create a connection.",
-                "truth": "Specification for the component to build. <p>For every input the component should produce the correct output.",
-                "toggle": "Click the checkbox to toggle the input signal and see how it affects the circuit.",
-                "verify": "Click here when you believe you have designed the component correctly."
-            },
-            "debriefing": "The <b>nand</b>-component has now been added to your toolbox and can be used as a building block in the following levels."
+            "elaboration": "<p>Компонент <b>І-НЕ</b> (nand-component, вентиль І-НЕ, nand-gate) - фундаментальний логічний компонент. Всю обчислювальну логіку можна збудувати використовуючи лише його. І саме тому ми почнемо зі створення І-НЕ!</p> \n\n<p><b>Реле</b> це перемикач керований електрикою, де контрольний сигнал спричинює вмикання і вимикання. Сигнальний струм приєднано до електромагніта, який переміщує контакт між позиціями увімкнено і вимкнено. \n\n<p>Перші електронні комп'ютери були побудовані з реле, але сучасні комп'ютери працюють на транзисторах. Транзистори - це перемикачі, як і реле, але без механічних частин, що робить їх (набагато!) меншими, дешевшими і швидшими. Nandgame використовує реле, бо тому що їх роботу простіше продемонструвати, але логічно реле і транзистори - однакові. Після того як ми сконструюємо вентиль І-НЕ, ми зможемо ігнорувати чи він з реле чи з транзисторів.\n",
+			"spoilers": [ "Використовуйте два етапи реле. На першому етапі реле має виводити 1, коли обидва a та b дорівнюють 1. Друге реле має інвертувати вихід з першого, тому 1 стає 0, а 0 стає 1." ],
+			"hints": {
+				"drag": "<b>Крок 1:</b> Перетягніть компоненти з панелі інструментів у синю область.",
+				"tap": "<b>Крок 2:</b> Натисніть або перетягніть трикутник для створення з'єднання.",
+				"tap-end": "Натисніть на з'єднувач на компоненті, щоб створити з'єднання.",
+				"truth": "Специфікація для компонента, який потрібно побудувати. <p>Для кожного ввводу компонент має генерувати правильний вивід.",
+				"toggle": "Натисніть на чекбокс, щоб перемкнути вхідний сигнал і подивитися, як це впливає на схему.",
+				"verify": "Натисніть тут, коли ви вважаєте, що правильно спроектували компонент."
+			},
+			"debriefing": "Компонент <b>І-НЕ</b> тепер додано до вашої панелі інструментів і його можна використати як будівельний блок на наступних рівнях."
         },
         "INV": {
-            "title": "Invert",
-            "splash": "<p>Your next task is to build an <b>inverter</b> component using the <b>nand</b> component.\n <p> <p>From this level on, we don't need to consider the mechanics of the underlying switches. While a physical nand-gate requires a connection to a power source, we don't need to show this on the diagram. All components are considered implicitly connected to a power source. We can now concentrate on the logical input/output.</p>",
-            "specification": "<p>The next task is to build an inverter (<b>inv</b>) component.\n\n <p>An <b>inv</b>-component has a single input and a single output.\n <p>The output should be the opposite of the input, so 0 for 1 and vice versa:\n\n ",
-            "hints": { "0": "The <b>nand</b> component have been added to the toolbox now." }
+            "title": "НЕ (інвертор)",
+			"splash": "<p>Ваше наступне завдання — побудувати <b>інвертор</b> (вентиль НЕ), використовуючи компонент <b>І-НЕ</b>.\n<p>З цього рівня нам не потрібно розглядати механіку фізичних перемикачів. Хоча фізичний вентиль І-НЕ потребує підключення до джерела живлення, нам не потрібно показувати це на діаграмі. Всі компоненти вважаються неявно підключеними до джерела живлення. Ми можемо тепер зосередитись на логічних ввводах/виводах.</p>",
+			"specification": "<p>Наступне завдання — побудувати інвертор (<b>inv</b>).</p><p>Компонент <b>inv</b> має один вхід і один вихід.</p><p>Вихід повинен бути протилежним до входу, тобто 0 для 1 і навпаки:</p>",
+			"hints": { "0": "Тепер компонент <b>nand</b> доданий до панелі інструментів." }
         },
         "AND": {
-            "title": "And",
-            "splash": "<p>The next task is to build an <b>and</b> gate using only <b>nand</b> and <b>inv</b> components.\n (You might not need both kinds to solve this task.)",
-            "specification": "<p>An <b>and</b> gate's output is 1 when both inputs are 1:",
-            "spoilers": [ "\"NAND\" is actually an abbreviation of \"Negative AND\"" ]
+            "title": "І",
+			"splash": "<p>Наступне завдання — побудувати логічний елемент <b>І</b> (AND), використовуючи лише компоненти <b>І-НЕ</b> та <b>НЕ</b>.\n (Можливо, вам не знадобляться обидва типи для вирішення цього завдання.)",
+			"specification": "<p>Вихід логічного елементу <b>І</b> (AND) дорівнює 1, коли обидва входи дорівнюють 1:",
         },
         "OR": {
-            "title": "Or",
-            "specification": "<p>An <b>or</b> gate output is 1 when at least one input is 1:"
+            "title": "АБО",
+            "specification": "<p>Вентиль <b>АБО</b> виводить 1, якщо хоча один з входів 1:"
         },
         "XOR": {
-            "title": "Xor",
-            "specification": "<p>An <b>xor</b> gate's output is 1 when the two inputs are different:",
-            "elaboration": "XOR is short for <i>Exclusive OR</i>. It means <i>either a or b but not both</i>."
+            "title": "Виключне АБО (Xor)",
+            "specification": "<p>Вентиль <b>виключне АБО</b> виводить 1 якщо його входи різні:",
+            "elaboration": "XOR - скорочення від <i>Exclusive OR</i>. Означає <i>або A або B але не обидва зразу</i>."
         },
         "HALFADD": {
             "title": "Half Adder",
@@ -749,10 +748,10 @@
         "stay": "Залишитись на цьому рівні",
         "about_translation": " ",
         "level_complete": "Рівень завершено успішно!",
-        "custom_components_start": "Custom components can be designed however you want. They can be used as parts in level solutions, or you can just use them to have fun and experiment.",
-        "click_to_reveal": "(Click to reveal)",
-        "component_error_output_unstable": "Component did not reach a stable state. Output is oscillating between 1 and 0",
-        "component_error_short_curcuit": "Short circuit by connecting ground (0) directly to V (1)",
+		"custom_components_start": "Власні компоненти можна розробляти так, як вам хочеться. Вони можуть використовуватися як частини рішень на рівнях, або ви можете використовувати їх для розваг та експериментів.",
+		"click_to_reveal": "(Натисніть, щоб показати)",
+		"component_error_output_unstable": "Компонент не досяг стабільного стану. Вивід коливається між 1 та 0",
+		"component_error_short_curcuit": "Коротке замикання шляхом прямого з'єднання землі (0) з V (1)",
         "assembler_quick_reference": "<p><b>Assembler quick reference</b>\n</p>\n\n<p>\nSyntax is:\n<code><i>destination</i> = <i>calculation</i> ; <i>jump-condition </i>\n    </code>\n    Destination and jump-condition are optional.\n</p>\n\n<p>\n    <code>D</code> and <code>A</code> are the two registers.\n    <code> *A</code> indicate the value in RAM at the address contained in <code>A</code>.\n</p>\n\n<b>Examples:</b>\n\n<table>\n    <tbody>\n        <tr>\n            <td>\n                <code>D = D + 1</code>\n            </td>\n            <td>\n                Calculate D + 1 and store the result in D.\n            </td>\n        </tr>\n        <tr>\n            <td>\n                <code>D - 1 ; JGE</code>\n            </td>\n            <td>Calculate D - 1. Jump if the result is greater than 0. (Result is not stored.)</td>\n        </tr>\n        <tr>\n            <td>\n                <code>A = 1234</code>\n            </td>\n            <td>Store the number 1234 in the A register.</td>\n        </tr>\n        <tr>\n            <td>\n                <code># Hello</code>\n            </td>\n            <td>Comment - ignored by assembler</td>\n        </tr>\n    </tbody>\n</table>\n<p></p>\n<b>Calculations</b>\n<table>\n    <tbody>\n        <tr>\n            <td>\n                <code>D + A</code>\n            </td>\n        </tr>\n        <tr>\n            <td>\n                <code>D - A</code> <i> or </i> <code>A - D</code>\n            </td>\n        </tr>\n        <tr>\n            <td>\n                <code>D &amp; A</code>\n            </td>\n            <td>(Bitwise and)</td>\n        </tr>\n        <tr>\n            <td>\n                <code>D | A</code>\n            </td>\n            <td>(Bitwise or)</td>\n        </tr>\n        <tr>\n            <td>\n                <code>A+1</code> <i> or </i> <code>D+1</code>\n            </td>\n        </tr>\n        <tr>\n            <td>\n                <code>A-1</code> <i> or </i> <code>D-1</code>\n            </td>\n        </tr>\n        <tr>\n            <td>\n                <code>-A</code> <i> or </i> <code>-D</code>\n            </td>\n        </tr>\n        <tr>\n            <td>\n                <code>~A</code> <i> or </i> <code>~D</code>\n            </td>\n            <td>(Bitwise inversion)</td>\n        </tr>\n        <tr>\n            <td>\n                <code>1</code> <i> or </i> <code>0</code> <i> or </i> <code>-1</code>\n            </td>\n        </tr>\n    </tbody>\n</table>\n<p>\n    In all cases can <code>*A</code> be used instead of <code>A</code>.\n</p>\n\n<b>Destinations</b>\n<p>\n    Any combination of <code>D</code>, <code>A</code> and <code>*A</code> can be used as destination. Multiple\n    destinations are comma separated, e.g. <code>D, A = 1</code>.\n</p>\n\n<b>Jump conditions</b>\n<table>\n    <tbody>\n        <tr>\n            <td></td>\n            <td>Jump when result of calculation is:</td>\n        </tr>\n        <tr>\n            <td>\n                <code>JEQ</code>\n            </td>\n            <td>equal to 0</td>\n        </tr>\n        <tr>\n            <td>\n                <code>JNE</code>\n            </td>\n            <td>not equal to 0</td>\n        </tr>\n        <tr>\n            <td>\n                <code>JGT</code>\n            </td>\n            <td>greater than 0</td>\n        </tr>\n        <tr>\n            <td>\n                <code>JGE</code>\n            </td>\n            <td>greater than or equal to 0</td>\n        </tr>\n        <tr>\n            <td>\n                <code>JLT</code>\n            </td>\n            <td>less than 0</td>\n        </tr>\n        <tr>\n            <td>\n                <code>JLE</code>\n            </td>\n            <td>less than or equal to 0</td>\n        </tr>\n        <tr>\n            <td>\n                <code>JMP</code>\n            </td>\n            <td>Unconditional jump (regardless of the calculation result.)</td>\n        </tr>\n    </tbody>\n</table>\n<p></p>\n<b>Number instructions</b>\n<p>\n    <code>A</code> can be directly assigned a number. Example: <code>A = 47</code>.\n    <br />\n    Numbers in hexadecimal is prefixed with <code>0x</code>, e.g: <code>A = 0x7FFF</code>\n    <br />\n    Numbers in binary is prefixed with <code>0b</code>, e.g: <code>A = 0b010111</code>. Underscores can be used to\n    separate digit groups, e.g: <code>A = 0b_0101_1100</code>.\n</p>\n\n<p></p>\n<b>Comments</b>\n<p>\n    Lines staring with <code>#</code> are ignored by the assembler. They can be used for comments and documentation.\n</p>\n\n<b>Labels</b>\n<p>\n    The keyword <code>LABEL</code> followed by a name makes the name represent the address of the following instruction.\n    This address can be assigned to <code>A</code> before a jump, e.g. <code>A = LOOP</code>.\n</p>\n<b>Defines</b>\n<p>\n    The keyword <code>DEFINE</code> followed by a name and a number will cause the name to be replaced with the number when it occurs in other instructions.\n    For example the two lines:\n\n    <br /><code>DEFINE foo 0x7FFF</code>\n        <br /><code>A = foo</code>\n\n    <br />Is equivalent to:\n    <code> A = 0x7FFF</code>\n</p>\n<b>Multiple targets</b>\n<p>It it possible to assign a result to multiple registers.</p>\n<p>E.g. <code>D, A = D - *A</code> The result of the calculation will be written to both A and D. </p>\n<p>Any combination of A, D and *A can be specified as destination.</p>"
     }
 }
